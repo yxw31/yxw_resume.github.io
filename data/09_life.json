@@ -1,0 +1,99 @@
+{
+  "sectionTitle": { "zh": "日常生活", "en": "Personal Life" },
+  "banner": {
+    "image": "images/daily_life/all1.jpg",
+    "eyebrow": { "zh": "运动 · 旅途 · 镜头", "en": "Move · Travel · Capture" },
+    "title": {
+      "zh": "用一点节奏，给自己换口气",
+      "en": "Catch a breath through movement and miles"
+    }
+  },
+  "intro": {
+    "title": { "zh": "关于我这个人", "en": "Beyond the Lab" },
+    "paragraph": {
+      "zh": "实验室和项目之外，我喜欢用运动和镜头给生活换口气。骑上车去感受公路与城市，球场上和队友切换乒乓、羽毛、篮球的节奏；周末有空就往山野走走，再用相机把那些瞬间留下来。我相信工程师不仅是解决问题的人，也应该是能感受生活、保有好奇的人。",
+      "en": "Outside the lab and the IDE, I keep myself fresh through sports and photography. Cycling through streets and country roads, rotating between table tennis, badminton, and basketball on the court; weekends I head out to the mountains when I can, and there's always a camera in my hand to keep those moments. To me an engineer isn't only someone who solves problems — they should also feel the world and stay curious about it."
+    }
+  },
+  "info": [
+    { "label": { "zh": "性格", "en": "Personality" }, "value": { "zh": "INTJ · 理性分析型", "en": "INTJ · Analytical" } },
+    { "label": { "zh": "语言", "en": "Languages" }, "value": { "zh": "普通话 / 英语 CET-6", "en": "Mandarin / English CET-6" } },
+    { "label": { "zh": "驾照", "en": "License" }, "value": { "zh": "C1 手动挡", "en": "C1 (Manual)" } },
+    { "label": { "zh": "兴趣关键词", "en": "Interests" }, "value": { "zh": "骑行 · 跑步 · 球类 · 旅游 · 摄影", "en": "Cycling · Running · Sports · Travel · Photo" } }
+  ],
+  "hobbies": [
+    { "icon": "bike",        "label": { "zh": "骑行",   "en": "Cycling" } },
+    { "icon": "run",         "label": { "zh": "跑步",   "en": "Running" } },
+    { "icon": "ball",        "label": { "zh": "篮球",   "en": "Basketball" } },
+    { "icon": "paddle",      "label": { "zh": "乒乓球", "en": "Table Tennis" } },
+    { "icon": "shuttlecock", "label": { "zh": "羽毛球", "en": "Badminton" } },
+    { "icon": "mountain",    "label": { "zh": "户外",   "en": "Outdoor" } },
+    { "icon": "camera",      "label": { "zh": "摄影",   "en": "Photo" } }
+  ],
+  "carousel": {
+    "interval": 5000,
+    "pauseOnHover": true
+  },
+  "photos": [
+    {
+      "icon": "mountain",
+      "title": { "zh": "户外旅游", "en": "Outdoor Travel" },
+      "description": {
+        "zh": "周末或假期跑去山野与城市之间，看不同的风景、想不同的事，回来又能专注一阵子。",
+        "en": "Heading out to mountains and cities on weekends — different scenery, different thoughts, and I come back ready to focus."
+      },
+      "images": [
+        "images/daily_life/travel5.jpg",
+        "images/daily_life/travel4.jpg",
+        "images/daily_life/travel2.jpg",
+        "images/daily_life/travel1.jpg",
+        "images/daily_life/travel3.jpg"
+      ]
+    },
+    {
+      "icon": "bike",
+      "title": { "zh": "骑行 · 在路上", "en": "On the Bike" },
+      "description": {
+        "zh": "周末骑上车，从城市穿到郊外的公路，节奏稳了，心也安静下来。",
+        "en": "After-work or weekend rides — pushing from the city into countryside roads. A steady cadence settles the mind."
+      },
+      "images": [
+        "images/daily_life/cycling1.jpg",
+        "images/daily_life/cycling2.jpg"
+      ]
+    },
+    {
+      "icon": "ball",
+      "title": { "zh": "运动时光", "en": "Court Time" },
+      "description": {
+        "zh": "篮球、乒乓球、羽毛球轮着打。喜欢团队配合的对抗，也享受拍子之间的细微判断。热爱跑步，热爱马拉松，享受在路上和时间赛跑的感觉。",
+        "en": "Basketball, table tennis, and badminton on rotation. I love team play and the small split-second reads of racket sports. I love running and love marathons. I enjoy the feeling of running and racing against time on the road."
+      },
+      "images": [
+        "images/daily_life/marathon2.jpg",
+        "images/daily_life/badminton1.jpg",
+        "images/daily_life/marathon1.jpg",
+        "images/daily_life/basketball1.jpg",
+        "images/daily_life/sportmeeting1.jpg"
+      ]
+    },
+    {
+      "icon": "camera",
+      "title": { "zh": "记录生活", "en": "Documenting Life" },
+      "description": {
+        "zh": "以工程师的眼光观察结构、光影与街头瞬间，用镜头给日常留一点痕迹。",
+        "en": "Watching structure, light, and street moments with an engineer's eye — letting the camera keep a trace of daily life."
+      },
+      "images": [
+        "images/daily_life/life_log4.jpg",
+        "images/daily_life/life_log5.jpg",
+        "images/daily_life/life_log7.jpg",
+        "images/daily_life/life_log8.jpg",
+        "images/daily_life/life_log3.jpg",
+        "images/daily_life/life_log1.jpg",
+        "images/daily_life/life_log2.jpg",
+        "images/daily_life/life_log6.jpg"
+      ]
+    }
+  ]
+}

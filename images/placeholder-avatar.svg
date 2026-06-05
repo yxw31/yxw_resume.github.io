@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="avBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1f2228"/>
+      <stop offset="100%" stop-color="#0d1015"/>
+    </linearGradient>
+    <pattern id="avGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0L0 0 0 20" fill="none" stroke="#2a2e36" stroke-width="0.6"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="400" fill="url(#avBg)"/>
+  <rect width="400" height="400" fill="url(#avGrid)" opacity="0.45"/>
+
+  <!-- Dashed inner frame to suggest "drop your photo here" -->
+  <rect x="14" y="14" width="372" height="372" rx="8" fill="none"
+        stroke="#ff6a00" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.55"/>
+
+  <!-- Person silhouette (passport-photo style) -->
+  <g fill="none" stroke="#ff6a00" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity="0.75">
+    <!-- shoulders -->
+    <path d="M70 320 Q70 240 200 230 Q330 240 330 320 L330 360 L70 360 Z"/>
+    <!-- head -->
+    <circle cx="200" cy="160" r="62"/>
+  </g>
+
+  <!-- Corner crop marks (passport feel) -->
+  <g stroke="#ff6a00" stroke-width="2" fill="none" opacity="0.6">
+    <path d="M28 50 L28 28 L50 28"/>
+    <path d="M372 50 L372 28 L350 28"/>
+    <path d="M28 350 L28 372 L50 372"/>
+    <path d="M372 350 L372 372 L350 372"/>
+  </g>
+
+  <!-- Label -->
+  <text x="200" y="385" text-anchor="middle" fill="#888" font-family="monospace"
+        font-size="14" font-weight="600" letter-spacing="3">AVATAR / 证件照</text>
+  <text x="200" y="100" text-anchor="middle" fill="#555" font-family="monospace"
+        font-size="9" letter-spacing="2">REPLACE_WITH_YOUR_PHOTO</text>
+</svg>

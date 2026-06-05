@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "personal-page",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "http-server", "-p", "8131", "-c-1", "--silent"],
+      "port": 8131
+    }
+  ]
+}

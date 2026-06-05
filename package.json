@@ -1,0 +1,11 @@
+{
+  "name": "yxw-personal-page",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Personal portfolio of Yuan Xiuwei — data-driven bilingual site with a knowledge-notes module.",
+  "scripts": {
+    "build:notes": "node tools/build-notes.js",
+    "set:password": "node tools/set-notes-password.js",
+    "dev": "npx http-server -p 8131 -c-1"
+  }
+}

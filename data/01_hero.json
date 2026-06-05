@@ -1,0 +1,48 @@
+{
+  "greeting": { "zh": "你好，我是", "en": "Hello, I'm" },
+  "name": { "zh": "袁修玮", "en": "Yuan Xiuwei" },
+  "title": {
+    "zh": "车辆工程 · 硕士在读",
+    "en": "Vehicle Engineering · M.S. Candidate"
+  },
+  "subtitle": {
+    "zh": "Beijing Institute of Technology",
+    "en": "北京理工大学"
+  },
+  "description": {
+    "zh": "北京理工大学车辆工程硕士在读。聚焦电机控制算法、混合动力域控制策略与深度学习，横跨工业故障诊断、车规级端侧部署与汽车网络安全等方向，致力于让前沿算法在真实车辆上落地。",
+    "en": "M.S. candidate in Vehicle Engineering at Beijing Institute of Technology. Focused on motor control algorithms, hybrid-powertrain domain control, and deep learning — from industrial fault diagnosis to automotive-grade edge deployment — bringing cutting-edge algorithms onto real vehicles."
+  },
+  "images": [
+    "images/hero/hero1.png",
+    "images/hero/hero2.jpg",
+    "images/hero/hero3.png",
+    "images/hero/hero4.png",
+    "images/hero/hero5.jpg"
+  ],
+  "carousel": {
+    "interval": 5000,
+    "pauseOnHover": true
+  },
+  "verticals": {
+    "label": { "zh": "核心方向", "en": "Key Verticals" },
+    "items": [
+      { "zh": "电机控制算法（FOC / LADRC）", "en": "Motor Control (FOC / LADRC)" },
+      { "zh": "域控制策略（MBD / AUTOSAR）", "en": "Domain Control (MBD / AUTOSAR)" },
+      { "zh": "深度学习与时序模型", "en": "Deep Learning & Time-Series" },
+      { "zh": "智能网联与车规级部署", "en": "Connected & Automotive-Grade" }
+    ]
+  },
+  "cta": [
+    {
+      "label": { "zh": "查看项目", "en": "View Projects" },
+      "href": "#projects",
+      "type": "primary"
+    },
+    {
+      "label": { "zh": "联系我", "en": "Get in Touch" },
+      "href": "#contact",
+      "type": "outline"
+    }
+  ]
+}

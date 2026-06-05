@@ -1,0 +1,32 @@
+{
+  "sectionTitle": { "zh": "关于我", "en": "About Me" },
+  "paragraphs": [
+    {
+      "zh": "我是袁修玮，北京理工大学车辆工程专业硕士在读，本科毕业于武汉理工大学车辆工程专业。研究与实践横跨深度学习算法、混合动力域控制策略、与智能网联汽车网络安全，擅长把前沿算法工程化、落地到真实车辆与控制器上。",
+      "en": "I'm Yuan Xiuwei, an M.S. candidate in Vehicle Engineering at Beijing Institute of Technology, with a B.E. in Vehicle Engineering from Wuhan University of Technology. My work spans deep learning, hybrid-powertrain domain control, and connected-vehicle cybersecurity — turning cutting-edge algorithms into engineering that runs on real vehicles and controllers."
+    },
+    {
+      "zh": "熟练使用 Python（深度学习 / 数据处理）与 C/C++（嵌入式开发），掌握 PyTorch、MATLAB/Simulink、CATIA、ANSYS、HackRF 等工具链。曾在中车工业研究院、经纬恒润从事智能算法研发，参与国家重点研发项目，并在多项竞赛中获奖。",
+      "en": "Proficient in Python (deep learning / data processing) and C/C++ (embedded development), with a toolchain spanning PyTorch, MATLAB/Simulink, CATIA, ANSYS, and HackRF. I've worked on intelligent-algorithm R&D at CRRC and Hirain Technologies, contributed to a national key R&D programme, and won awards in several competitions."
+    }
+  ],
+  "info": [
+    {
+      "label": { "zh": "学校", "en": "University" },
+      "value": { "zh": "北京理工大学（硕）", "en": "BIT (M.S.)" }
+    },
+    {
+      "label": { "zh": "专业", "en": "Major" },
+      "value": { "zh": "车辆工程", "en": "Vehicle Engineering" }
+    },
+    {
+      "label": { "zh": "研究方向", "en": "Focus" },
+      "value": { "zh": "电机控制算法 · 深度学习 · 域控制开发", "en": "Motor Control Algorithms · Deep Learning · Domain Control Development" }
+    },
+    {
+      "label": { "zh": "政治面貌", "en": "Affiliation" },
+      "value": { "zh": "中共党员", "en": "CPC Member" }
+    }
+  ],
+  "avatar": "images/home_page/yxw.jpg"
+}

@@ -1,0 +1,40 @@
+{
+  "sectionTitle": { "zh": "学生工作", "en": "Student Activities" },
+  "items": [
+    {
+      "school": { "zh": "北京理工大学 · 机车学院动力所第二党支部", "en": "BIT · Powertrain Institute, 2nd Party Branch" },
+      "period": { "zh": "2025.09 — 至今", "en": "2025.09 — Present" },
+      "degree": { "zh": "党支部书记", "en": "Party Branch Secretary" },
+      "bullets": [
+        {
+          "zh": "负责党支部日常建设与党员教育管理，组织政治学习、主题党日等党务活动，发挥党员先锋模范作用，积极推动支部建设与科研工作深度融合。",
+          "en": "Responsible for day-to-day branch building and member education; organised political-study sessions and themed party-day activities, and drove deep integration of branch work with research."
+        }
+      ],
+      "tags": [
+        { "zh": "组织管理", "en": "Organization" },
+        { "zh": "党务工作", "en": "Party Affairs" }
+      ]
+    },
+    {
+      "school": { "zh": "武汉理工大学汽车工程学院 · 学生会", "en": "WHUT · School of Automotive Eng. Student Union" },
+      "period": "2022.09 — 2023.06",
+      "degree": { "zh": "副主席", "en": "Vice President" },
+      "bullets": [
+        {
+          "zh": "主导学生会内部制度改革与组织架构优化，统筹策划迎新、高校辩论赛等各类活动共 24 场，组织学院运动会并协调多部门协作，积累了丰富的大型活动策划与执行经验。",
+          "en": "Led internal reform and restructuring of the student union; planned 24 events including orientation and inter-university debates, and coordinated multi-department collaboration for the college sports meet — building strong large-event planning and execution experience."
+        },
+        {
+          "zh": "2021 年暑假赴武汉市蔡甸区柏木村柏木小学开展暑期支教活动，提升了语言沟通与表达能力。",
+          "en": "Volunteered as a summer teacher at Baimu Primary School (Caidian District, Wuhan) in 2021, strengthening communication and presentation skills."
+        }
+      ],
+      "tags": [
+        { "zh": "活动统筹", "en": "Event Planning" },
+        { "zh": "团队协调", "en": "Coordination" },
+        { "zh": "支教", "en": "Volunteer Teaching" }
+      ]
+    }
+  ]
+}

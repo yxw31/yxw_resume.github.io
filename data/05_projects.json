@@ -1,0 +1,315 @@
+{
+  "sectionTitle": { "zh": "项目经历", "en": "Projects" },
+  "viewDetail": { "zh": "查看详情 →", "en": "View Detail →" },
+  "backLabel": { "zh": "← 返回项目列表", "en": "← Back to Projects" },
+  "portfolioLabel": { "zh": "作品集", "en": "Portfolio" },
+  "sidebarLabels": {
+    "tech": { "zh": "技术栈", "en": "Tech Stack" },
+    "period": { "zh": "时间", "en": "Period" },
+    "results": { "zh": "成果", "en": "Outcome" },
+    "keywords": { "zh": "关键词", "en": "Keywords" }
+  },
+  "items": [
+    {
+      "id": "hybrid-domain-control",
+      "title": {
+        "zh": "混合动力域控制策略研究（电机控制策略）",
+        "en": "Hybrid Powertrain Domain Control Strategy"
+      },
+      "summary": {
+        "zh": "面向行星排混合动力非道路车辆的动力域控制器策略设计，基于 MBD + AUTOSAR 实现双电机精确转矩控制与 LADRC 抗扰转速跟踪。",
+        "en": "Powertrain domain-controller strategy for planetary-gear hybrid off-road vehicles — dual-motor precise torque control and LADRC disturbance-rejection speed tracking, built with MBD + AUTOSAR."
+      },
+      "icon": "cpu",
+      "cover": "images/projects/motor/motor_model1.png",
+      "tech": ["Simulink", "AUTOSAR", "FOC / LADRC", "AURIX TC387"],
+      "detail": {
+        "subtitle": {
+          "zh": "面向行星排混合动力非道路车辆的动力域控制器策略设计，以英飞凌 AURIX TC387 为硬件平台，采用基于模型设计（MBD）与 AUTOSAR 架构，研究双电机精确转矩控制与 ISG 电机抗扰转速跟踪。",
+          "en": "Powertrain domain-controller strategy for planetary-gear hybrid off-road vehicles — built on the Infineon AURIX TC387 with Model-Based Design (MBD) and AUTOSAR, researching dual-motor precise torque control and disturbance-rejection speed tracking for the ISG motor."
+        },
+        "sections": [
+          {
+            "heading": { "zh": "项目背景", "en": "Background" },
+            "type": "paragraph",
+            "content": {
+              "zh": "本课题为硕士毕业设计研究方向，面向行星排混合动力非道路车辆的动力域控制器策略设计，旨在提升整机燃油经济性与复杂路况下的速度稳定性。非道路车辆负载多变、工况复杂，对动力域控制器的转矩分配与抗扰能力提出了更高要求。",
+              "en": "This is my master's thesis direction: designing the powertrain domain-controller strategy for planetary-gear hybrid off-road vehicles, aiming to improve overall fuel economy and speed stability under complex road conditions. Off-road vehicles face highly variable loads and demanding duty cycles, raising the bar for the controller's torque allocation and disturbance rejection."
+            }
+          },
+          {
+            "heading": { "zh": "研究内容", "en": "Scope of Work" },
+            "type": "list",
+            "items": [
+              {
+                "zh": "以英飞凌 AURIX TC387 四核处理器为硬件平台，采用基于模型设计（MBD）方法，在 Simulink 中完成系统建模与控制算法开发。",
+                "en": "Used the Infineon AURIX TC387 quad-core processor as the hardware platform; applied Model-Based Design (MBD) to build the system model and control algorithms in Simulink."
+              },
+              {
+                "zh": "自动生成代码，采用 AUTOSAR 架构开发并部署至控制器。",
+                "en": "Auto-generated code and deployed it to the controller under an AUTOSAR architecture."
+              },
+              {
+                "zh": "研究基于矢量控制（FOC）的双电机精确转矩控制算法。",
+                "en": "Researched a Field-Oriented Control (FOC) based dual-motor precise torque-control algorithm."
+              },
+              {
+                "zh": "引入线性自抗扰控制（LADRC），提升 ISG 电机在变负载工况下的抗扰转速跟踪性能。",
+                "en": "Introduced Linear Active Disturbance Rejection Control (LADRC) to improve the ISG motor's disturbance-rejection speed tracking under varying loads."
+              },
+              {
+                "zh": "独立开发基于 CAN 通讯的双电机控制上位机，实现场景测试、实时状态展示与控制器核心参数标定。",
+                "en": "Independently built a CAN-based dual-motor host application for scenario testing, real-time status display, and calibration of core controller parameters."
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "关键成果", "en": "Key Results" },
+            "type": "paragraph",
+            "content": {
+              "zh": "构建了从 Simulink 建模、自动代码生成到 AUTOSAR 部署的完整开发链路，实现双电机精确转矩控制；LADRC 显著提升了 ISG 电机在变负载下的转速跟踪抗扰能力，配合自研上位机完成场景测试与参数标定。",
+              "en": "Established a complete pipeline from Simulink modeling and auto-code generation to AUTOSAR deployment, achieving precise dual-motor torque control; LADRC markedly improved the ISG motor's disturbance-rejection speed tracking under varying loads, with the in-house host tool enabling scenario testing and calibration. "
+            }
+          },
+          {
+            "heading": { "zh": "个人贡献", "en": "My Contribution" },
+            "type": "paragraph",
+            "content": {
+              "zh": "独立完成控制算法的 Simulink 建模、FOC / LADRC 算法设计与整定、AUTOSAR 代码生成与控制器部署，并自主开发基于 CAN 的双电机控制上位机。",
+              "en": "Independently handled the Simulink modeling, FOC / LADRC design and tuning, AUTOSAR code generation and controller deployment, and built the CAN-based dual-motor host application from scratch."
+            }
+          }
+        ],
+        "images": [
+          {
+            "src": "images/projects/motor/motor_model2.png",
+            "caption": { "zh": "图：控制策略架构 / Simulink 模型", "en": "Fig: control architecture / Simulink model " }
+          }
+        ],
+        "sidebar": {
+          "tech": ["Simulink", "MBD", "AUTOSAR", "FOC", "LADRC", "AURIX TC387", "CAN"],
+          "period": { "zh": "2025.09 — 至今", "en": "2025.09 — Present" },
+          "results": {
+            "zh": "硕士毕业设计 · 在研",
+            "en": "Master's thesis · In progress"
+          },
+          "keywords": [
+            { "zh": "混合动力", "en": "Hybrid Powertrain" },
+            { "zh": "域控制器", "en": "Domain Controller" },
+            { "zh": "电机控制", "en": "Motor Control" },
+            { "zh": "抗扰控制", "en": "Disturbance Rejection" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "connected-vehicle-security",
+      "title": {
+        "zh": "智能网联汽车网络安全防护",
+        "en": "Connected-Vehicle Cybersecurity"
+      },
+      "summary": {
+        "zh": "国家重点研发项目：基于 LSTM 的车载以太网入侵检测系统，并搭建上位机→树莓派→4G→云端的车云交互演示平台。",
+        "en": "National key R&D project: an LSTM-based automotive-Ethernet intrusion detection system, plus a vehicle-to-cloud demo platform (host → Raspberry Pi → 4G → cloud)."
+      },
+      "icon": "shield",
+      "cover": "images/projects/vehicle_network/network1.png",
+      "tech": ["LSTM", "Python", "Raspberry Pi", "CAN"],
+      "detail": {
+        "subtitle": {
+          "zh": "参与国家重点研发项目，开发基于 LSTM 神经网络的车载以太网入侵检测系统，并设计车—云交互演示平台，打通上位机→树莓派 CAN 报文→4G 网络→云端的完整链路。",
+          "en": "Part of a national key R&D project — developed an LSTM-based intrusion detection system for automotive Ethernet and designed a vehicle-to-cloud demo platform spanning host → Raspberry Pi CAN frames → 4G → cloud."
+        },
+        "sections": [
+          {
+            "heading": { "zh": "项目背景", "en": "Background" },
+            "type": "paragraph",
+            "content": {
+              "zh": "随着智能网联汽车通信链路的开放，车载网络面临日益严峻的入侵与攻击风险。本项目作为国家重点研发项目的一部分，针对车载以太网的异常流量检测与车云协同防护展开研究。",
+              "en": "As connected-vehicle communication links open up, in-vehicle networks face increasingly serious intrusion risks. As part of a national key R&D project, this work studied anomaly detection on automotive Ethernet and vehicle-cloud collaborative protection."
+            }
+          },
+          {
+            "heading": { "zh": "研究内容", "en": "Scope of Work" },
+            "type": "list",
+            "items": [
+              {
+                "zh": "开发基于 LSTM 神经网络的车载以太网入侵检测系统，实现异常数据的实时监测与预警。",
+                "en": "Developed an LSTM-based intrusion detection system for automotive Ethernet, enabling real-time anomaly monitoring and alerting."
+              },
+              {
+                "zh": "负责云交互演示平台的界面设计。",
+                "en": "Responsible for the UI design of the cloud-interaction demo platform."
+              },
+              {
+                "zh": "打通上位机 → 树莓派 CAN 报文 → 4G 网络 → 云端的完整数据链路。",
+                "en": "Built the full data link: host → Raspberry Pi CAN frames → 4G network → cloud."
+              },
+              {
+                "zh": "结合内网穿透技术完成车云交互软件的联调与验证。",
+                "en": "Used intranet-penetration techniques to integrate and validate the vehicle-cloud interaction software."
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "个人贡献", "en": "My Contribution" },
+            "type": "paragraph",
+            "content": {
+              "zh": "作为项目组成员，参与 LSTM 入侵检测模型的开发，并独立负责云交互演示平台的界面设计与车—云链路搭建。",
+              "en": "As a project team member, I contributed to the LSTM intrusion-detection model and independently owned the demo-platform UI and the vehicle-to-cloud data link."
+            }
+          }
+        ],
+        "images": [],
+        "sidebar": {
+          "tech": ["LSTM", "Python", "Raspberry Pi", "CAN", "4G", "Cloud"],
+          "period": "2024.09 — 2025.06",
+          "results": {
+            "zh": "国家重点研发项目<br>实时入侵检测与车云联调",
+            "en": "National key R&D project<br>Real-time IDS + vehicle-cloud integration"
+          },
+          "keywords": [
+            { "zh": "入侵检测", "en": "Intrusion Detection" },
+            { "zh": "车载以太网", "en": "Automotive Ethernet" },
+            { "zh": "车云交互", "en": "Vehicle-Cloud" },
+            { "zh": "LSTM", "en": "LSTM" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "gps-spoofing-ctf",
+      "title": {
+        "zh": "汽车漏洞挖掘比赛 · 车载 GPS 欺骗干扰",
+        "en": "Automotive Vulnerability Mining · GPS Spoofing"
+      },
+      "summary": {
+        "zh": "中汽中心汽车漏洞挖掘比赛，主攻车载 GPS 欺骗干扰方向，利用 HackRF 对实车发起攻击。",
+        "en": "CATARC automotive vulnerability-mining competition — focused on in-vehicle GPS spoofing/jamming, attacking real vehicles with HackRF."
+      },
+      "icon": "radio",
+      "cover": "images/projects/GPS_cheat/gps.png",
+      "tech": ["HackRF", "SDR", "GPS Spoofing"],
+      "detail": {
+        "subtitle": {
+          "zh": "参与中汽中心汽车漏洞挖掘比赛，主攻车载 GPS 欺骗干扰方向，利用 HackRF 无线电设备对实车发起攻击，成功使多款目标车型 GPS 系统瘫痪。",
+          "en": "Competed in the CATARC automotive vulnerability-mining contest, focusing on in-vehicle GPS spoofing/jamming — using the HackRF SDR to attack real vehicles and successfully disabling the GPS of several target models."
+        },
+        "sections": [
+          {
+            "heading": { "zh": "项目背景", "en": "Background" },
+            "type": "paragraph",
+            "content": {
+              "zh": "车载导航与众多智能驾驶功能依赖 GPS 定位，其无线信号易受欺骗与干扰攻击。在中汽中心组织的汽车漏洞挖掘比赛中，本团队主攻车载 GPS 安全方向，开展授权范围内的攻防测试。",
+              "en": "In-vehicle navigation and many ADAS functions rely on GPS, whose wireless signals are vulnerable to spoofing and jamming. In the CATARC-organized vulnerability-mining competition, our team focused on in-vehicle GPS security, performing authorized red-team testing."
+            }
+          },
+          {
+            "heading": { "zh": "技术要点", "en": "Approach" },
+            "type": "list",
+            "items": [
+              {
+                "zh": "利用 HackRF 软件无线电设备，对车载 GPS 信号实施欺骗与干扰。",
+                "en": "Used the HackRF software-defined radio to spoof and jam in-vehicle GPS signals."
+              },
+              {
+                "zh": "在授权测试环境下对实车发起攻击，验证多款目标车型的定位脆弱性。",
+                "en": "Launched authorized attacks on real vehicles, verifying positioning vulnerabilities across several target models."
+              },
+              {
+                "zh": "成功使目标多款车型的 GPS 系统瘫痪，输出漏洞验证结论。",
+                "en": "Successfully disabled the GPS of multiple target models and delivered vulnerability findings."
+              }
+            ]
+          }
+        ],
+        "images": [],
+        "sidebar": {
+          "tech": ["HackRF", "SDR", "GNSS", "GPS Spoofing"],
+          "period": "2025.05",
+          "results": {
+            "zh": "授权攻防测试<br>多款车型 GPS 瘫痪验证",
+            "en": "Authorized red-team test<br>GPS disabled on multiple models"
+          },
+          "keywords": [
+            { "zh": "汽车安全", "en": "Automotive Security" },
+            { "zh": "GPS 欺骗", "en": "GPS Spoofing" },
+            { "zh": "软件无线电", "en": "SDR" },
+            { "zh": "漏洞挖掘", "en": "Vuln. Research" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "baja-suspension",
+      "title": {
+        "zh": "中国汽车工程学会巴哈大赛 · 悬架设计",
+        "en": "Baja SAE China · Suspension Design"
+      },
+      "summary": {
+        "zh": "负责赛车悬架结构设计与加工，使用 CATIA / ANSYS 建模与强度分析，并用 DMU 模块完成运动校核。",
+        "en": "Designed and fabricated the race-car suspension; modeled and ran strength analysis in CATIA / ANSYS and validated motion with the DMU module."
+      },
+      "icon": "wrench",
+      "cover": "images/projects/baja/baja1.png",
+      "tech": ["CATIA", "ANSYS", "DMU"],
+      "detail": {
+        "subtitle": {
+          "zh": "作为悬架组成员参与中国汽车工程学会巴哈大赛，负责赛车悬架结构设计与加工，使用 CATIA / ANSYS 进行建模与强度分析，并利用 CATIA DMU 模块完成运动与装配校核。",
+          "en": "As a suspension-team member in Baja SAE China, I designed and fabricated the race-car suspension, modeled and analyzed strength in CATIA / ANSYS, and validated motion and assembly with the CATIA DMU module."
+        },
+        "sections": [
+          {
+            "heading": { "zh": "项目背景", "en": "Background" },
+            "type": "paragraph",
+            "content": {
+              "zh": "中国汽车工程学会巴哈大赛要求参赛队伍自主设计、制造一辆越野赛车。悬架系统直接决定赛车在复杂越野路况下的通过性、操控性与可靠性。",
+              "en": "Baja SAE China challenges teams to design and build an off-road race car from scratch. The suspension directly governs the car's mobility, handling, and reliability on rough off-road terrain."
+            }
+          },
+          {
+            "heading": { "zh": "研究内容", "en": "Scope of Work" },
+            "type": "list",
+            "items": [
+              {
+                "zh": "负责赛车悬架结构的方案设计与零部件加工。",
+                "en": "Owned the structural design of the suspension and fabrication of its parts."
+              },
+              {
+                "zh": "使用 CATIA 建立悬架三维模型，ANSYS 进行强度与刚度分析。",
+                "en": "Built 3D suspension models in CATIA and ran strength/stiffness analysis in ANSYS."
+              },
+              {
+                "zh": "利用 CATIA 的 DMU 模块完成运动干涉检查与装配校核。",
+                "en": "Used the CATIA DMU module for motion/interference checks and assembly validation."
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "个人贡献", "en": "My Contribution" },
+            "type": "paragraph",
+            "content": {
+              "zh": "作为悬架组成员，承担悬架结构设计、有限元强度校核与运动学校核工作，并参与实车加工装配。",
+              "en": "As a suspension-team member, I handled structural design, FEA strength checks, and kinematic validation, and took part in fabrication and assembly. "
+            }
+          }
+        ],
+        "images": [],
+        "sidebar": {
+          "tech": ["CATIA", "ANSYS", "DMU"],
+          "period": "2021.11 — 2022.11",
+          "results": {
+            "zh": "悬架结构设计 / 加工<br>强度与运动校核",
+            "en": "Suspension design / fabrication<br>Strength & motion validation"
+          },
+          "keywords": [
+            { "zh": "巴哈赛车", "en": "Baja" },
+            { "zh": "悬架设计", "en": "Suspension" },
+            { "zh": "有限元分析", "en": "FEA" },
+            { "zh": "结构设计", "en": "Structural Design" }
+          ]
+        }
+      }
+    }
+  ]
+}

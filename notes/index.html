@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Notes access-gate sentinel (sync). Redirects to login.html unless the
+       browser already has an unexpired unlock record. To disable the gate
+       entirely, set "enabled": false in data/52_notes-gate.json AND remove
+       this script. ⚠ Client-side check only — not real encryption. -->
+  <script>
+  (function () {
+    try {
+      var raw = localStorage.getItem('notes-gate-unlocked-v1')
+             || sessionStorage.getItem('notes-gate-unlocked-v1');
+      if (raw) {
+        var d = JSON.parse(raw);
+        if (d && d.ts && (Date.now() - d.ts) < ((d.days || 7) * 86400000)) return;
+      }
+    } catch (e) {}
+    var here = location.pathname.split('/').pop() + location.search + location.hash;
+    location.replace('login.html?returnTo=' + encodeURIComponent(here || 'index.html'));
+  })();
+  </script>
+  <title>知识库 · 袁修玮</title>
+  <meta name="description" content="袁修玮的个人知识库：车辆工程、电机控制、深度学习与工具技巧笔记。" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/notes.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="notes-body">
+
+  <!-- Shared navbar (rendered by render.js) -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../" class="nav-logo" data-site="logo">YXW</a>
+      <nav class="nav-links" id="navLinks"></nav>
+      <div class="nav-actions">
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">EN</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="notesMain">
+    <!-- Rendered by render-notes-list.js -->
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container" data-site="footer"></div>
+  </footer>
+
+  <script src="../js/render.js"></script>
+  <script src="../js/render-notes-list.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

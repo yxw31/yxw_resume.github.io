@@ -1,0 +1,36 @@
+{
+  "sectionTitle": { "zh": "技能", "en": "Skills" },
+  "categories": [
+    {
+      "name": { "zh": "编程语言", "en": "Programming" },
+      "skills": [
+        { "zh": "Python（深度学习/数据处理）", "en": "Python (DL / Data)" },
+        { "zh": "C / C++（嵌入式）", "en": "C / C++ (Embedded)" }
+      ]
+    },
+    {
+      "name": { "zh": "AI & 仿真", "en": "AI & Simulation" },
+      "skills": ["PyTorch", "MATLAB/Simulink", "AI Coding"]
+    },
+    {
+      "name": { "zh": "CAE & 设计", "en": "CAE & Design" },
+      "skills": ["CATIA", "ANSYS"]
+    },
+    {
+      "name": { "zh": "硬件 & 射频", "en": "Hardware & RF" },
+      "skills": [
+        { "zh": "Keil 单片机", "en": "Keil (MCU)" },
+        "Multisim",
+        "Altium Designer",
+        "HackRF"
+      ]
+    },
+    {
+      "name": { "zh": "证书", "en": "Certificates" },
+      "skills": [
+        { "zh": "计算机二级（Office）", "en": "Computer Rank L2 (Office)" },
+        "CET-6"
+      ]
+    }
+  ]
+}

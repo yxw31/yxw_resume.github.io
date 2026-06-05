@@ -1,0 +1,30 @@
+{
+  "title": { "zh": "袁修玮 · 车辆工程", "en": "Yuan Xiuwei · Vehicle Engineering" },
+  "description": {
+    "zh": "袁修玮 — 北京理工大学车辆工程硕士在读，专注于电机控制算法、混合动力域控制与深度学习的技术作品集。",
+    "en": "Yuan Xiuwei — M.S. candidate in Vehicle Engineering at BIT. A technical portfolio spanning motor control algorithms, hybrid powertrain control, and deep learning."
+  },
+  "logo": "YXW",
+  "htmlLang": { "zh": "zh-CN", "en": "en" },
+  "defaultTheme": "light",
+  "defaultLang": "zh",
+  "nav": [
+    { "label": { "zh": "关于", "en": "About" }, "href": "#about" },
+    { "label": { "zh": "教育", "en": "Education" }, "href": "#education" },
+    { "label": { "zh": "实习", "en": "Experience" }, "href": "#experience" },
+    { "label": { "zh": "项目", "en": "Projects" }, "href": "#projects" },
+    { "label": { "zh": "学生工作", "en": "Activities" }, "href": "#activities" },
+    { "label": { "zh": "技能", "en": "Skills" }, "href": "#skills" },
+    { "label": { "zh": "荣誉", "en": "Honors" }, "href": "#publications" },
+    { "label": { "zh": "生活", "en": "Life" }, "href": "#life" },
+    { "label": { "zh": "联系", "en": "Contact" }, "href": "#contact" },
+    { "label": { "zh": "知识库", "en": "Notes" }, "href": "notes/" }
+  ],
+  "footer": {
+    "tagline": {
+      "zh": "行稳致远，进而有为",
+      "en": "Stepping forward, achieving greater success"
+    },
+    "copyright": { "zh": "© 2026 袁修玮 · 保留所有权利", "en": "© 2026 Yuan Xiuwei · All rights reserved." }
+  }
+}

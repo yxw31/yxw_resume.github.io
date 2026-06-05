@@ -1,0 +1,100 @@
+{
+  "sectionTitle": {
+    "zh": "荣誉 与 奖项",
+    "en": "Honors & Awards"
+  },
+  "subsectionTitles": {
+    "publications": {
+      "zh": "奖学金",
+      "en": "Scholarships"
+    },
+    "awards": {
+      "zh": "竞赛 与 荣誉",
+      "en": "Competitions & Honors"
+    }
+  },
+  "labels": {
+    "scholarship": { "zh": "奖学金", "en": "Scholar" }
+  },
+  "publications": [
+    {
+      "type": "scholarship",
+      "title": {
+        "zh": "北京理工大学二等奖学金",
+        "en": "BIT Second-Class Scholarship"
+      },
+      "meta": {
+        "zh": "研究生 · 北京理工大学",
+        "en": "Graduate · Beijing Institute of Technology"
+      }
+    },
+    {
+      "type": "scholarship",
+      "title": {
+        "zh": "北汽奖学金",
+        "en": "BAIC Scholarship"
+      },
+      "meta": {
+        "zh": "企业奖学金 · 武汉理工大学",
+        "en": "Corporate Scholarship · Wuhan University of Technology"
+      }
+    },
+    {
+      "type": "scholarship",
+      "title": {
+        "zh": "武汉理工大学三等奖学金",
+        "en": "WHUT Third-Class Scholarship"
+      },
+      "meta": {
+        "zh": "本科 · 武汉理工大学",
+        "en": "Undergraduate · Wuhan University of Technology"
+      }
+    }
+  ],
+  "awards": [
+    {
+      "year": { "zh": "竞赛", "en": "Contest" },
+      "title": {
+        "zh": "汽车虚拟拆装大赛 · 二等奖",
+        "en": "Automotive Virtual Disassembly Contest · Second Prize"
+      },
+      "meta": {
+        "zh": "学科竞赛",
+        "en": "Engineering Competition"
+      }
+    },
+    {
+      "year": { "zh": "体育", "en": "Sports" },
+      "title": {
+        "zh": "湖北省大学生田径运动会 800m · 第二名",
+        "en": "Hubei Collegiate Athletics · 800 m, 2nd Place"
+      },
+      "meta": {
+        "zh": "省级",
+        "en": "Provincial Level"
+      }
+    },
+    {
+      "year": { "zh": "荣誉", "en": "Honor" },
+      "title": {
+        "zh": "院三好学生",
+        "en": "College Merit Student"
+      },
+      "meta": {
+        "zh": "武汉理工大学汽车工程学院",
+        "en": "School of Automotive Engineering"
+      }
+    },
+    {
+      "year": { "zh": "荣誉", "en": "Honor" },
+      "title": {
+        "zh": "校优秀共青团员 · 校优秀学生会干部",
+        "en": "University Outstanding League Member · Student Union Officer"
+      },
+      "meta": {
+        "zh": "校级荣誉",
+        "en": "University Level"
+      }
+    }
+  ]
+}

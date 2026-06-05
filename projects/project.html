@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>项目详情 · 袁修玮</title>
+  <meta name="description" content="项目详情 · 袁修玮 个人作品集。" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    .project-hero {
+      padding: 140px 24px 60px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted-fg);
+      margin-bottom: 32px;
+    }
+    .breadcrumb a {
+      color: var(--accent-color);
+      transition: opacity 0.2s;
+    }
+    .breadcrumb a:hover { opacity: 0.7; }
+    .breadcrumb span { color: var(--muted-fg); }
+    .project-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .project-hero .subtitle {
+      font-size: 1.0625rem;
+      color: var(--muted-fg);
+      max-width: 640px;
+      line-height: 1.6;
+    }
+    .project-body {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 48px;
+    }
+    .project-content h2 {
+      font-size: 1.375rem;
+      font-weight: 700;
+      margin: 36px 0 16px;
+    }
+    .project-content h2:first-child { margin-top: 0; }
+    .project-content p {
+      font-size: 0.9375rem;
+      color: var(--muted-fg);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .project-content ul {
+      list-style: none;
+      padding: 0;
+    }
+    .project-content ul li {
+      font-size: 0.9375rem;
+      color: var(--muted-fg);
+      line-height: 1.7;
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+    .project-content ul li::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-color);
+    }
+    .project-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .project-images figure { margin: 0; }
+    .project-images img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      display: block;
+    }
+    .project-images figcaption {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted-fg);
+      margin-top: 6px;
+    }
+    .project-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .sidebar-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .sidebar-card h3 {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-color);
+      margin-bottom: 12px;
+    }
+    .sidebar-card .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .sidebar-card .tech-list span {
+      font-family: var(--font-mono);
+      font-size: 0.71875rem;
+      color: var(--fg);
+      background: hsl(var(--muted));
+      border: 1px solid var(--border-color);
+      padding: 3px 10px;
+      border-radius: 9999px;
+    }
+    .sidebar-card p {
+      font-size: 0.84375rem;
+      color: var(--muted-fg);
+      line-height: 1.55;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--accent-color);
+      margin-top: 32px;
+      transition: opacity 0.2s;
+    }
+    .back-link:hover { opacity: 0.7; }
+    @media (max-width: 768px) {
+      .project-body { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../" class="nav-logo" data-site="logo">KL</a>
+      <nav class="nav-links" id="navLinks"></nav>
+      <div class="nav-actions">
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">EN</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="projectMain">
+    <!-- Populated by render-project.js -->
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container" data-site="footer"></div>
+  </footer>
+
+  <script src="../js/render.js"></script>
+  <script src="../js/render-project.js"></script>
+</body>
+</html>

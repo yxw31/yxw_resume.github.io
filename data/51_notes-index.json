@@ -1,0 +1,97 @@
+{
+  "generatedAt": "2026-06-05T15:02:22.741Z",
+  "notes": [
+    {
+      "id": "motor-control/foc-basics",
+      "title": "FOC 矢量控制基础笔记",
+      "category": "motor-control",
+      "date": "2026-05-20",
+      "updated": "2026-05-30",
+      "tags": [
+        "foc",
+        "motor",
+        "basics",
+        "control"
+      ],
+      "summary": "从 Clarke / Park 变换到电流环 PI，一篇笔记说清 FOC 的核心思路与最常见的工程坑点。",
+      "path": "content/motor-control/foc-basics.md"
+    },
+    {
+      "id": "motor-control/ladrc-cheatsheet",
+      "title": "LADRC 调参速查表",
+      "category": "motor-control",
+      "date": "2026-05-25",
+      "updated": "2026-05-30",
+      "tags": [
+        "ladrc",
+        "foc",
+        "tuning",
+        "isg"
+      ],
+      "summary": "线性自抗扰控制（LADRC）在 ISG 电机变负载工况下的调参一页纸，重点是 b0 和带宽的取法。",
+      "path": "content/motor-control/ladrc-cheatsheet.md"
+    },
+    {
+      "id": "tools/vscode-tips",
+      "title": "VS Code 写 Markdown 笔记的几个提速插件",
+      "category": "tools",
+      "date": "2026-05-30",
+      "updated": "2026-05-30",
+      "tags": [
+        "vscode",
+        "markdown",
+        "productivity"
+      ],
+      "summary": "把 VS Code 配成一个比 Typora 更顺手的 Markdown 笔记环境，关键是 5 个插件 + 2 个快捷键。",
+      "path": "content/tools/vscode-tips.md"
+    },
+    {
+      "id": "automotive-security/gps-spoofing-intro",
+      "title": "车载 GPS 欺骗攻击入门",
+      "category": "automotive-security",
+      "date": "2026-05-10",
+      "updated": "2026-05-28",
+      "tags": [
+        "gps",
+        "spoofing",
+        "hackrf",
+        "sdr",
+        "security"
+      ],
+      "summary": "从中汽中心汽车漏洞挖掘比赛的实践出发，简述 GPS 欺骗的原理、所需设备与防御思路。",
+      "path": "content/automotive-security/gps-spoofing-intro.md"
+    },
+    {
+      "id": "deep-learning/time-series-models",
+      "title": "时序模型对比：Transformer / PatchTST / DLinear / MICN",
+      "category": "deep-learning",
+      "date": "2026-03-10",
+      "updated": "2026-05-28",
+      "tags": [
+        "time-series",
+        "transformer",
+        "patchtst",
+        "dlinear",
+        "micn"
+      ],
+      "summary": "在工业异常检测项目里用过的几种时序模型横向对比 —— 性能、训练成本与可解释性的取舍。",
+      "path": "content/deep-learning/time-series-models.md"
+    },
+    {
+      "id": "domain-control/aurix-tc387-quickstart",
+      "title": "AURIX TC387 上手避坑",
+      "category": "domain-control",
+      "date": "2026-04-15",
+      "updated": "2026-05-28",
+      "tags": [
+        "aurix",
+        "tc387",
+        "autosar",
+        "mbd",
+        "infineon"
+      ],
+      "summary": "第一次拿到英飞凌 AURIX TC387 板子时遇到的几个典型问题与解决方案：HSM、Lockstep、Multi-Core 启动顺序、DTS 加载。",
+      "path": "content/domain-control/aurix-tc387-quickstart.md"
+    }
+  ]
+}

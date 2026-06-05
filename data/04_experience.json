@@ -1,0 +1,47 @@
+{
+  "sectionTitle": { "zh": "实习经历", "en": "Experience" },
+  "items": [
+    {
+      "school": { "zh": "经纬恒润科技股份有限公司", "en": "Hirain Technologies Co., Ltd." },
+      "period": "2025.09 — 2025.12",
+      "degree": { "zh": "算法实习生", "en": "Algorithm Intern" },
+      "bullets": [
+        {
+          "zh": "参与智能座舱大模型及感知系统开发，主导基于摄像头的驾驶员生理指标（血氧浓度、呼吸频率、心率）非接触式视觉感知算法研究。",
+          "en": "Contributed to intelligent-cockpit LLM and perception system development; led research on a camera-based, contactless vision algorithm for driver physiological indicators (SpO₂, respiratory rate, heart rate)."
+        },
+        {
+          "zh": "完成 PyTorch 模型向高通 8255 车规级芯片的端侧部署与适配，实现座舱内实时生理体征监测。",
+          "en": "Deployed and adapted a PyTorch model onto the Qualcomm 8255 automotive-grade chip for on-device, real-time in-cabin vital-sign monitoring."
+        }
+      ],
+      "tags": [
+        { "zh": "智能座舱", "en": "Intelligent Cockpit" },
+        "PyTorch",
+        { "zh": "端侧部署", "en": "Edge Deployment" },
+        { "zh": "视觉感知", "en": "Vision Sensing" }
+      ]
+    },
+    {
+      "school": { "zh": "中车工业研究院", "en": "CRRC Industrial Research Institute" },
+      "period": "2025.01 — 2025.05",
+      "degree": { "zh": "智能算法技术研究岗助理", "en": "Intelligent Algorithm Research Assistant" },
+      "bullets": [
+        {
+          "zh": "参与工业智能算法项目，利用深度学习网络对轴承、齿轮等零部件进行异常检测，研究并对比 Transformer、PatchTST、DLinear、MICN 等多种时序模型，构建故障诊断路由模型。",
+          "en": "Worked on an industrial intelligent-algorithm project, using deep networks to detect anomalies in bearings, gears, and other components; benchmarked time-series models including Transformer, PatchTST, DLinear, and MICN, and built a fault-diagnosis routing model."
+        },
+        {
+          "zh": "负责交通设备零部件数据集处理与训练，承担深度学习算法调优、API 接口修改及大规模训练数据处理等工作。",
+          "en": "Owned dataset processing and training for transit-equipment components, handling deep-learning model tuning, API modifications, and large-scale training-data pipelines."
+        }
+      ],
+      "tags": [
+        { "zh": "异常检测", "en": "Anomaly Detection" },
+        { "zh": "时序模型", "en": "Time-Series Models" },
+        "Transformer",
+        { "zh": "故障诊断", "en": "Fault Diagnosis" }
+      ]
+    }
+  ]
+}

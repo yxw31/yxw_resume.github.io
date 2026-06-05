@@ -1,0 +1,15 @@
+{
+  "prefix": "SYS://",
+  "items": [
+    {
+      "label": { "zh": "位置", "en": "LOC" },
+      "value": { "zh": "北京", "en": "Beijing" }
+    },
+    {
+      "label": { "zh": "状态", "en": "STATUS" },
+      "value": { "zh": "求职中", "en": "Open to Work" },
+      "highlight": true
+    }
+  ],
+  "clockLabel": "LOCAL_TIME"
+}

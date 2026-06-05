@@ -1,0 +1,39 @@
+{
+  "sectionTitle": { "zh": "教育经历", "en": "Education" },
+  "items": [
+    {
+      "school": { "zh": "北京理工大学", "en": "Beijing Institute of Technology" },
+      "period": { "zh": "硕士在读", "en": "M.S. · In Progress" },
+      "degree": {
+        "zh": "车辆工程 · 硕士研究生",
+        "en": "M.S. in Vehicle Engineering"
+      },
+      "description": {
+        "zh": "毕业设计方向：行星排混合动力非道路车辆动力域控制策略研究（电机控制策略）。",
+        "en": "Thesis direction: powertrain domain control strategy for planetary-gear hybrid off-road vehicles (motor control)."
+      },
+      "tags": [
+        { "zh": "深度学习", "en": "Deep Learning" },
+        { "zh": "域控制策略", "en": "Domain Control" },
+        { "zh": "电机控制算法", "en": "Motor Control Algorithms" }
+      ]
+    },
+    {
+      "school": { "zh": "武汉理工大学", "en": "Wuhan University of Technology" },
+      "period": { "zh": "本科", "en": "B.E." },
+      "degree": {
+        "zh": "车辆工程 · 工学学士",
+        "en": "B.E. in Vehicle Engineering"
+      },
+      "description": {
+        "zh": "汽车工程学院。系统学习汽车构造、车辆理论、机械设计、嵌入式与控制工程，并深度参与学生工作与学科竞赛。",
+        "en": "School of Automotive Engineering. Coursework in automotive structure, vehicle theory, mechanical design, embedded systems, and control engineering, with active involvement in student leadership and competitions."
+      },
+      "tags": [
+        { "zh": "车辆理论", "en": "Vehicle Theory" },
+        { "zh": "机械设计", "en": "Mechanical Design" },
+        { "zh": "嵌入式", "en": "Embedded" }
+      ]
+    }
+  ]
+}

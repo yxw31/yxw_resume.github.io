@@ -1,0 +1,34 @@
+{
+  "enabled": true,
+  "salt": "yxw-notes-2026-salt",
+  "rememberDays": 7,
+  "title": {
+    "zh": "知识库 · 访问授权",
+    "en": "Notes · Access Required"
+  },
+  "subtitle": {
+    "zh": "请输入访问密码后进入",
+    "en": "Enter the access password to continue"
+  },
+  "hint": {
+    "zh": "如不知道密码，请联系站点所有者。",
+    "en": "Please ask the site owner if you don't have the password."
+  },
+  "errorMsg": {
+    "zh": "密码不正确，请重试。",
+    "en": "Wrong password. Try again."
+  },
+  "rememberLabel": {
+    "zh": "记住我 7 天",
+    "en": "Remember me for 7 days"
+  },
+  "unlockLabel": {
+    "zh": "解锁",
+    "en": "Unlock"
+  },
+  "backLabel": {
+    "zh": "← 返回主站",
+    "en": "← Back to portfolio"
+  },
+  "passwordHash": "ecdd54c874449b5b1976a767ef37bc49f4512646e883b5f3536f7cd7d435acce"
+}

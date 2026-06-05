@@ -1,0 +1,95 @@
+{
+  "title": { "zh": "个人知识库", "en": "Knowledge Notes" },
+  "subtitle": { "zh": "记录 · 整理 · 回顾", "en": "Capture · Organize · Revisit" },
+  "intro": {
+    "zh": "这里收录我在车辆工程、深度学习与工具链使用过程中沉淀下来的笔记、技巧与文献摘要。一边研究一边记录，避免重复踩坑。",
+    "en": "A growing collection of notes, tips, and paper summaries from my work on vehicle engineering, deep learning, and engineering tooling. Captured as I go — so I don't trip over the same stones twice."
+  },
+  "backToSite": { "zh": "← 返回主页", "en": "← Back to Portfolio" },
+  "siteEntry": {
+    "label": { "zh": "知识库", "en": "Notes" },
+    "tagline": { "zh": "进入个人知识库", "en": "Enter knowledge notes" }
+  },
+  "labels": {
+    "searchPlaceholder": { "zh": "搜索笔记标题、标签、摘要…", "en": "Search title, tag, summary…" },
+    "categoriesTitle": { "zh": "分类", "en": "Categories" },
+    "recentTitle": { "zh": "最近更新", "en": "Recent Updates" },
+    "tagsTitle": { "zh": "热门标签", "en": "Popular Tags" },
+    "notesCount": { "zh": "篇笔记", "en": "notes" },
+    "readingTime": { "zh": "分钟阅读", "en": "min read" },
+    "wordsCount": { "zh": "字", "en": "words" },
+    "publishedOn": { "zh": "发表于", "en": "Published" },
+    "updatedOn": { "zh": "更新于", "en": "Updated" },
+    "tocTitle": { "zh": "目录", "en": "Contents" },
+    "copyCode": { "zh": "复制", "en": "Copy" },
+    "copied": { "zh": "已复制", "en": "Copied" },
+    "prev": { "zh": "上一篇", "en": "Previous" },
+    "next": { "zh": "下一篇", "en": "Next" },
+    "related": { "zh": "相关阅读", "en": "Related" },
+    "noResults": { "zh": "没有找到匹配的笔记。", "en": "No matching notes." },
+    "viewAll": { "zh": "查看全部 →", "en": "View all →" },
+    "browseCategory": { "zh": "进入分类 →", "en": "Browse →" }
+  },
+  "categories": [
+    {
+      "id": "motor-control",
+      "name": { "zh": "电机控制", "en": "Motor Control" },
+      "icon": "cpu",
+      "color": "#ff6a00",
+      "description": {
+        "zh": "FOC、LADRC、转矩控制与抗扰算法等。",
+        "en": "FOC, LADRC, torque control, and disturbance-rejection."
+      }
+    },
+    {
+      "id": "domain-control",
+      "name": { "zh": "域控制开发", "en": "Domain Control" },
+      "icon": "monitor",
+      "color": "#5c9eff",
+      "description": {
+        "zh": "MBD、AUTOSAR、AURIX TC387 与 CAN 通讯。",
+        "en": "MBD, AUTOSAR, AURIX TC387, and CAN."
+      }
+    },
+    {
+      "id": "deep-learning",
+      "name": { "zh": "深度学习", "en": "Deep Learning" },
+      "icon": "brain",
+      "color": "#a48cff",
+      "description": {
+        "zh": "时序模型、异常检测、PyTorch 端侧部署。",
+        "en": "Time-series, anomaly detection, on-device PyTorch."
+      }
+    },
+    {
+      "id": "automotive-security",
+      "name": { "zh": "车辆安全", "en": "Automotive Security" },
+      "icon": "shield",
+      "color": "#ff6b6b",
+      "description": {
+        "zh": "车载 IDS、GPS 欺骗与漏洞挖掘相关。",
+        "en": "Vehicle IDS, GPS spoofing, and vulnerability research."
+      }
+    },
+    {
+      "id": "tools",
+      "name": { "zh": "工具技巧", "en": "Tools & Tips" },
+      "icon": "wrench",
+      "color": "#3ec46d",
+      "description": {
+        "zh": "Simulink、VS Code、git 与 AI coding 心得。",
+        "en": "Simulink, VS Code, git, and AI coding workflow."
+      }
+    },
+    {
+      "id": "papers",
+      "name": { "zh": "文献资料", "en": "Papers & Refs" },
+      "icon": "book",
+      "color": "#f0b94a",
+      "description": {
+        "zh": "SAE、IEEE 等论文摘要与文档收藏。",
+        "en": "SAE / IEEE paper notes and references."
+      }
+    }
+  ]
+}

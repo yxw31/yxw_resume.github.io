@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Build / temp
+*.log
+*.tmp
+*.bak
+.cache/
+dist/
+
+# Sensitive — never commit real secrets
+.env
+.env.local
+*.pem
+*.key
+
+# Claude / agent local state (project-level Claude settings live in .claude/
+# but the per-user local override is gitignored)
+.claude/settings.local.json
+
+# Backup folders
+*-backup-*/
+*-backup_*/
+
+# NOTE: if you want the "Download CV" button to work, place your resume PDF in
+# the project root (e.g. Resume.pdf) and set "cta.buttonHref" in
+# data/10_contact.json. Do NOT add resume PDFs to .gitignore — they need to
+# ship with the site.

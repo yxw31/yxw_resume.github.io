@@ -1,0 +1,34 @@
+{
+  "sectionTitle": { "zh": "联系", "en": "Contact" },
+  "intro": {
+    "zh": "正在寻找电机控制算法 / 域控制器开发 / VCU控制策略方向的工作机会，欢迎联系交流。",
+    "en": "Open to roles in motor control algorithms, domain controller development, and VCU control strategies — feel free to reach out."
+  },
+  "links": [
+    {
+      "type": "email",
+      "label": "15965243827@163.com",
+      "href": "mailto:15965243827@163.com"
+    },
+    {
+      "type": "phone",
+      "label": "15965243827",
+      "href": "tel:15965243827"
+    }
+  ],
+  "cta": {
+    "title": {
+      "zh": "求职中",
+      "en": "Open to Opportunities"
+    },
+    "description": {
+      "zh": "寻求电机控制算法、域控制器开发、VCU控制策略方向的岗位。",
+      "en": "Looking for positions in motor control algorithms, domain controller development, and VCU control strategies."
+    },
+    "buttonLabel": {
+      "zh": "下载简历",
+      "en": "Download CV"
+    },
+    "buttonHref": "#"
+  }
+}

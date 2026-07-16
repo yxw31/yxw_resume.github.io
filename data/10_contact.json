@@ -1,8 +1,8 @@
 {
   "sectionTitle": { "zh": "联系", "en": "Contact" },
   "intro": {
-    "zh": "正在寻找电机控制算法 / 域控制器开发 / VCU控制策略方向的工作机会，欢迎联系交流。",
-    "en": "Open to roles in motor control algorithms, domain controller development, and VCU control strategies — feel free to reach out."
+    "zh": "正在寻找线控底盘 / 电机控制算法 / 车载电动执行器控制方向的工作机会，欢迎联系交流。",
+    "en": "Open to roles in chassis-by-wire, motor-control algorithms, and automotive electric-actuator control — feel free to reach out."
   },
   "links": [
     {
@@ -22,8 +22,8 @@
       "en": "Open to Opportunities"
     },
     "description": {
-      "zh": "寻求电机控制算法、域控制器开发、VCU控制策略方向的岗位。",
-      "en": "Looking for positions in motor control algorithms, domain controller development, and VCU control strategies."
+      "zh": "寻求线控底盘、电机控制算法、车载电动执行器控制与车规控制器开发方向的岗位。",
+      "en": "Looking for positions in chassis-by-wire, motor-control algorithms, electric-actuator control, and automotive controller development."
     },
     "buttonLabel": {
       "zh": "下载简历",

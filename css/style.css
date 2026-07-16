@@ -929,17 +929,87 @@ html.light .icon-moon {
   display: flex;
   align-items: center;
   gap: 12px;
+  width: 100%;
   font-size: 0.90625rem;
-  transition: border-color 0.2s;
+  color: var(--fg);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .contact-link:hover {
   border-color: hsl(var(--accent) / 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px hsl(var(--foreground) / 0.05);
+}
+
+.contact-link:focus-visible {
+  outline: 2px solid var(--ring-color);
+  outline-offset: 3px;
 }
 
 .contact-link svg {
   color: var(--accent-color);
   flex-shrink: 0;
+}
+
+.contact-copy-content {
+  min-width: 0;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.contact-copy-value {
+  overflow-wrap: anywhere;
+}
+
+.contact-copy-hint {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--muted-fg);
+}
+
+.copy-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  z-index: 2000;
+  max-width: calc(100vw - 32px);
+  padding: 11px 18px;
+  border: 1px solid hsl(var(--accent) / 0.3);
+  border-radius: 9999px;
+  background: hsl(var(--card) / 0.96);
+  color: var(--fg);
+  box-shadow: 0 14px 40px hsl(var(--foreground) / 0.14);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 14px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.copy-toast::before {
+  content: "✓";
+  margin-right: 8px;
+  color: var(--accent-color);
+  font-weight: 800;
+}
+
+.copy-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.copy-toast.is-error::before {
+  content: "!";
 }
 
 .contact-cta {

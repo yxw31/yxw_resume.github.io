@@ -639,13 +639,22 @@
 
     const links = (data.links || []).map(function (l) {
       const icon = ICONS[l.type] || ICONS.email;
-      const external = /^https?:/i.test(l.href);
-      const attrs = external ? ' target="_blank" rel="noopener"' : '';
+      const value = t(l.label, lang);
+      const kindLabel = l.type === 'phone'
+        ? (lang === 'zh' ? '电话' : 'phone number')
+        : (lang === 'zh' ? '邮箱' : 'email address');
+      const hint = lang === 'zh' ? '点击复制' : 'Click to copy';
       return (
-        '<a href="' + esc(l.href) + '"' + attrs + ' class="contact-link card">' +
+        '<button type="button" class="contact-link contact-copy card"' +
+          ' data-copy-contact="' + esc(value) + '"' +
+          ' data-copy-kind="' + esc(l.type || 'text') + '"' +
+          ' aria-label="' + esc((lang === 'zh' ? '复制' : 'Copy ') + kindLabel + '：' + value) + '">' +
           icon +
-          '<span>' + esc(t(l.label, lang)) + '</span>' +
-        '</a>'
+          '<span class="contact-copy-content">' +
+            '<span class="contact-copy-value">' + esc(value) + '</span>' +
+            '<span class="contact-copy-hint">' + esc(hint) + '</span>' +
+          '</span>' +
+        '</button>'
       );
     }).join('');
 
@@ -664,6 +673,83 @@
         '</div>' +
       '</div>';
   }
+
+  let copyToastTimer = null;
+
+  function showCopyToast(message, isError) {
+    let toast = document.getElementById('copyToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'copyToast';
+      toast.className = 'copy-toast';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      document.body.appendChild(toast);
+    }
+
+    toast.textContent = message;
+    toast.classList.toggle('is-error', Boolean(isError));
+    toast.classList.remove('is-visible');
+    void toast.offsetWidth;
+    toast.classList.add('is-visible');
+
+    clearTimeout(copyToastTimer);
+    copyToastTimer = setTimeout(function () {
+      toast.classList.remove('is-visible');
+    }, 2200);
+  }
+
+  function legacyCopyText(value) {
+    const textarea = document.createElement('textarea');
+    textarea.value = value;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    textarea.style.pointerEvents = 'none';
+    document.body.appendChild(textarea);
+    textarea.select();
+    textarea.setSelectionRange(0, value.length);
+    const copied = document.execCommand('copy');
+    textarea.remove();
+    if (!copied) throw new Error('document.execCommand("copy") failed');
+  }
+
+  async function copyContactValue(value) {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(value);
+      return;
+    }
+    legacyCopyText(value);
+  }
+
+  document.addEventListener('click', function (event) {
+    const button = event.target.closest('[data-copy-contact]');
+    if (!button) return;
+
+    const value = button.getAttribute('data-copy-contact') || '';
+    const kind = button.getAttribute('data-copy-kind');
+    const lang = state.lang;
+    const kindLabel = kind === 'phone'
+      ? (lang === 'zh' ? '电话' : 'Phone number')
+      : (lang === 'zh' ? '邮箱' : 'Email address');
+
+    copyContactValue(value).then(function () {
+      showCopyToast(
+        lang === 'zh'
+          ? kindLabel + '已复制到剪贴板'
+          : kindLabel + ' copied to clipboard',
+        false
+      );
+    }).catch(function (err) {
+      console.error('[contact] copy failed:', err);
+      showCopyToast(
+        lang === 'zh'
+          ? '复制失败，请手动复制'
+          : 'Copy failed. Please copy it manually.',
+        true
+      );
+    });
+  });
 
   // --- Top-level render (homepage) ---
   function renderHome() {

@@ -51,12 +51,17 @@
       grid-template-columns: 1fr 300px;
       gap: 48px;
     }
+    .project-section {
+      margin-top: 38px;
+    }
+    .project-section:first-child {
+      margin-top: 0;
+    }
     .project-content h2 {
       font-size: 1.375rem;
       font-weight: 700;
-      margin: 36px 0 16px;
+      margin: 0 0 16px;
     }
-    .project-content h2:first-child { margin-top: 0; }
     .project-content p {
       font-size: 0.9375rem;
       color: var(--muted-fg);
@@ -84,6 +89,124 @@
       height: 6px;
       border-radius: 50%;
       background: var(--accent-color);
+    }
+    .project-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+    }
+    .project-metric {
+      min-height: 132px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      background: var(--card-bg);
+    }
+    .project-metric strong {
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      font-size: 1.45rem;
+      line-height: 1.2;
+      margin-bottom: 7px;
+    }
+    .project-metric span {
+      color: var(--fg);
+      font-size: 0.8125rem;
+      font-weight: 600;
+    }
+    .project-metric small {
+      color: var(--muted-fg);
+      font-size: 0.71875rem;
+      line-height: 1.45;
+      margin-top: 5px;
+    }
+    .project-steps {
+      list-style: none;
+      padding: 0;
+      counter-reset: project-step;
+    }
+    .project-steps li {
+      counter-increment: project-step;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 14px;
+      padding: 0 0 22px;
+      margin: 0;
+    }
+    .project-steps li::before {
+      content: counter(project-step, decimal-leading-zero);
+      position: static;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid hsl(var(--accent) / 0.35);
+      border-radius: 50%;
+      background: hsl(var(--accent) / 0.08);
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+    }
+    .project-steps strong {
+      display: block;
+      color: var(--fg);
+      font-size: 0.90625rem;
+      margin: 5px 0 5px;
+    }
+    .project-steps p {
+      margin: 0;
+      font-size: 0.84375rem;
+    }
+    .project-callout {
+      border-left: 3px solid var(--accent-color);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: hsl(var(--accent) / 0.07);
+      padding: 18px 20px;
+    }
+    .project-callout strong {
+      display: block;
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      margin-bottom: 6px;
+    }
+    .project-callout p {
+      margin: 0;
+      color: var(--fg);
+    }
+    .project-related-links {
+      display: grid;
+      gap: 10px;
+    }
+    .project-related-link {
+      display: flex;
+      flex-direction: column;
+      padding: 18px 20px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      background: var(--card-bg);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .project-related-link:hover {
+      border-color: hsl(var(--accent) / 0.35);
+      transform: translateY(-1px);
+    }
+    .project-related-link > span {
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      margin-bottom: 5px;
+    }
+    .project-related-link > strong {
+      color: var(--fg);
+      font-size: 0.90625rem;
+    }
+    .project-related-link > p {
+      margin: 5px 0 0;
+      font-size: 0.8125rem;
     }
     .project-images {
       display: grid;
@@ -156,6 +279,10 @@
     .back-link:hover { opacity: 0.7; }
     @media (max-width: 768px) {
       .project-body { grid-template-columns: 1fr; }
+      .project-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .project-metrics { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -186,7 +313,7 @@
     <div class="footer-container" data-site="footer"></div>
   </footer>
 
-  <script src="../js/render.js"></script>
-  <script src="../js/render-project.js"></script>
+  <script src="../js/render.js?v=20260717-1"></script>
+  <script src="../js/render-project.js?v=20260717-1"></script>
 </body>
 </html>

@@ -1,8 +1,8 @@
 {
   "title": { "zh": "袁修玮 · 车辆工程", "en": "Yuan Xiuwei · Vehicle Engineering" },
   "description": {
-    "zh": "袁修玮 — 北京理工大学车辆工程硕士在读，专注于电机控制算法、混合动力域控制与深度学习的技术作品集。",
-    "en": "Yuan Xiuwei — M.S. candidate in Vehicle Engineering at BIT. A technical portfolio spanning motor control algorithms, hybrid powertrain control, and deep learning."
+    "zh": "袁修玮 — 北京理工大学车辆工程硕士在读，聚焦线控底盘、电机控制、冗余安全与车规控制器开发的技术作品集。",
+    "en": "Yuan Xiuwei — M.S. candidate in Vehicle Engineering at BIT, focused on chassis-by-wire, motor control, functional redundancy, and automotive controller development."
   },
   "logo": "YXW",
   "htmlLang": { "zh": "zh-CN", "en": "en" },

@@ -9,8 +9,16 @@
       ]
     },
     {
-      "name": { "zh": "AI & 仿真", "en": "AI & Simulation" },
-      "skills": ["PyTorch", "MATLAB/Simulink", "AI Coding"]
+      "name": { "zh": "控制算法与建模", "en": "Control & Modeling" },
+      "skills": ["MATLAB/Simulink", "Stateflow", "FOC", "LADRC", { "zh": "多闭环控制", "en": "Cascaded Control Loops" }, { "zh": "状态机与故障降级", "en": "State Machines & Degradation" }]
+    },
+    {
+      "name": { "zh": "车规开发与标定", "en": "Automotive Development" },
+      "skills": ["AUTOSAR", "AURIX TC387", "CAN / CANape", "Lauterbach", { "zh": "台架测试", "en": "Bench Testing" }, { "zh": "标定自动化", "en": "Calibration Automation" }]
+    },
+    {
+      "name": { "zh": "智能算法", "en": "Intelligent Algorithms" },
+      "skills": ["PyTorch", { "zh": "时序模型", "en": "Time-Series Models" }, { "zh": "车规端侧部署", "en": "Automotive Edge Deployment" }, "AI Coding"]
     },
     {
       "name": { "zh": "CAE & 设计", "en": "CAE & Design" },

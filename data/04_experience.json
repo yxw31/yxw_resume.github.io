@@ -2,6 +2,32 @@
   "sectionTitle": { "zh": "实习经历", "en": "Experience" },
   "items": [
     {
+      "school": { "zh": "华为技术有限公司", "en": "Huawei Technologies Co., Ltd." },
+      "period": { "zh": "2026.06 — 至今", "en": "2026.06 — Present" },
+      "degree": { "zh": "车载智能线控制动产品研发", "en": "Automotive Intelligent Brake-by-Wire Product R&D" },
+      "bullets": [
+        {
+          "zh": "参与车载线控制动执行器控制策略开发，基于Simulink/Stateflow搭建电机多闭环控制逻辑，覆盖位置环、速度环、转矩/电流环等模块，并参与模型仿真、代码集成与台架调试。",
+          "en": "Participated in the development of control strategies for automotive brake-by-wire actuators, building multi-loop motor control logic in Simulink/Stateflow, covering position, speed, and torque/current loops; involved in model simulation, code integration, and bench testing."
+        },
+        {
+          "zh": "负责线控制动主/备控制板及 CAN A/B 路冗余切换逻辑，设计故障判定、状态机跳转、降级保护与恢复条件，并完成控制单板冒烟测试及 EMC 相关验证。",
+          "en": "Developed redundant switchover logic for primary/backup brake-by-wire control boards and CAN A/B channels, including fault detection, state transitions, degraded-mode protection, recovery conditions, board smoke tests, and EMC-related validation."
+        },
+        {
+          "zh": "独立完成 T-F 数据标定与曲线拟合，开发自动化标定程序，将单卡钳标定时间压缩至 15 秒以内；使用 CANape、Lauterbach 完成变量观测、内存映射、底层代码追踪与总线诊断。",
+          "en": "Independently completed T-F data calibration and curve fitting, creating an automated workflow that reduced single-caliper calibration time to under 15 seconds; used CANape and Lauterbach for measurement, memory mapping, low-level tracing, and bus diagnostics."
+        }
+      ],
+      "tags": [
+        { "zh": "线控制动", "en": "Brake-by-Wire" },
+        { "zh": "电动执行器", "en": "Electric Actuators" },
+        "Simulink / Stateflow",
+        { "zh": "冗余与故障降级", "en": "Redundancy & Degradation" },
+        "CANape / Lauterbach"
+      ]
+    },
+    {
       "school": { "zh": "经纬恒润科技股份有限公司", "en": "Hirain Technologies Co., Ltd." },
       "period": "2025.09 — 2025.12",
       "degree": { "zh": "算法实习生", "en": "Algorithm Intern" },

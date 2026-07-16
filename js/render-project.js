@@ -17,6 +17,7 @@
 
   const esc = KL.esc;
   const escAllowBr = KL.escAllowBr;
+  const resolveHref = KL.resolveHref;
   const t = KL.t;
 
   const cache = {
@@ -30,13 +31,80 @@
   }
 
   function renderSection(s, lang) {
+    const heading = '<h2>' + esc(t(s.heading, lang)) + '</h2>';
+
     if (s.type === 'list') {
       const items = (s.items || []).map(function (i) {
         return '<li>' + esc(t(i, lang)) + '</li>';
       }).join('');
-      return '<h2>' + esc(t(s.heading, lang)) + '</h2><ul>' + items + '</ul>';
+      return '<section class="project-section">' + heading + '<ul>' + items + '</ul></section>';
     }
-    return '<h2>' + esc(t(s.heading, lang)) + '</h2><p>' + esc(t(s.content, lang)) + '</p>';
+
+    if (s.type === 'paragraphs') {
+      const paragraphs = (s.paragraphs || []).map(function (paragraph) {
+        return '<p>' + esc(t(paragraph, lang)) + '</p>';
+      }).join('');
+      return '<section class="project-section">' + heading + paragraphs + '</section>';
+    }
+
+    if (s.type === 'metrics') {
+      const metrics = (s.items || []).map(function (item) {
+        const detailText = t(item.detail, lang);
+        return (
+          '<div class="project-metric">' +
+            '<strong>' + esc(t(item.value, lang)) + '</strong>' +
+            '<span>' + esc(t(item.label, lang)) + '</span>' +
+            (detailText ? '<small>' + esc(detailText) + '</small>' : '') +
+          '</div>'
+        );
+      }).join('');
+      return '<section class="project-section">' + heading + '<div class="project-metrics">' + metrics + '</div></section>';
+    }
+
+    if (s.type === 'steps') {
+      const steps = (s.items || []).map(function (item) {
+        return (
+          '<li>' +
+            '<div>' +
+              '<strong>' + esc(t(item.title, lang)) + '</strong>' +
+              '<p>' + esc(t(item.description, lang)) + '</p>' +
+            '</div>' +
+          '</li>'
+        );
+      }).join('');
+      return '<section class="project-section">' + heading + '<ol class="project-steps">' + steps + '</ol></section>';
+    }
+
+    if (s.type === 'callout') {
+      const labelText = t(s.label, lang);
+      return (
+        '<section class="project-section">' +
+          heading +
+          '<div class="project-callout">' +
+            (labelText ? '<strong>' + esc(labelText) + '</strong>' : '') +
+            '<p>' + esc(t(s.content, lang)) + '</p>' +
+          '</div>' +
+        '</section>'
+      );
+    }
+
+    if (s.type === 'links') {
+      const links = (s.items || []).map(function (item) {
+        const href = resolveHref(item.href || '#');
+        const external = /^https?:/i.test(href);
+        return (
+          '<a class="project-related-link" href="' + esc(href) + '"' +
+            (external ? ' target="_blank" rel="noopener"' : '') + '>' +
+            '<span>' + esc(t(item.eyebrow, lang)) + '</span>' +
+            '<strong>' + esc(t(item.title, lang)) + '</strong>' +
+            '<p>' + esc(t(item.description, lang)) + '</p>' +
+          '</a>'
+        );
+      }).join('');
+      return '<section class="project-section">' + heading + '<div class="project-related-links">' + links + '</div></section>';
+    }
+
+    return '<section class="project-section">' + heading + '<p>' + esc(t(s.content, lang)) + '</p></section>';
   }
 
   function renderImages(images, lang) {

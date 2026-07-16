@@ -31,67 +31,241 @@
         "sections": [
           {
             "heading": { "zh": "项目背景", "en": "Background" },
-            "type": "paragraph",
+            "type": "paragraphs",
             "content": {
-              "zh": "本课题为硕士毕业设计研究方向，面向行星排混合动力非道路车辆的动力域控制器策略设计，旨在提升整机燃油经济性与复杂路况下的速度稳定性。非道路车辆负载多变、工况复杂，对动力域控制器的转矩分配与抗扰能力提出了更高要求。",
-              "en": "This is my master's thesis direction: designing the powertrain domain-controller strategy for planetary-gear hybrid off-road vehicles, aiming to improve overall fuel economy and speed stability under complex road conditions. Off-road vehicles face highly variable loads and demanding duty cycles, raising the bar for the controller's torque allocation and disturbance rejection."
-            }
-          },
-          {
-            "heading": { "zh": "研究内容", "en": "Scope of Work" },
-            "type": "list",
-            "items": [
+              "zh": "本课题面向采用行星排功率分流结构的混合动力非道路车辆，研究发动机、发电电机、驱动电机与机械传动机构的协调控制。针对负载突变、低速大转矩及复杂模式切换工况，重点研究转矩控制、抗扰转速跟踪、限幅保护和控制器工程部署。",
+              "en": "This project studies coordinated control of the engine, generator motor, traction motor, and mechanical drivetrain in a planetary power-split hybrid off-road vehicle, with emphasis on torque control, disturbance rejection, protection, and controller deployment."
+            },
+            "paragraphs": [
               {
-                "zh": "以英飞凌 AURIX TC387 四核处理器为硬件平台，采用基于模型设计（MBD）方法，在 Simulink 中完成系统建模与控制算法开发。",
-                "en": "Used the Infineon AURIX TC387 quad-core processor as the hardware platform; applied Model-Based Design (MBD) to build the system model and control algorithms in Simulink."
+                "zh": "本课题为硕士毕业设计研究方向，研究对象是采用行星排功率分流结构的混合动力非道路车辆。系统由发动机、发电电机、驱动电机及机械传动机构共同构成，需要动力域控制器在复杂作业工况下协调不同动力源。",
+                "en": "This master's thesis studies a planetary power-split hybrid powertrain for off-road vehicles. The engine, generator motor, traction motor, and mechanical drivetrain must be coordinated by the powertrain domain controller under demanding duty cycles."
               },
               {
-                "zh": "自动生成代码，采用 AUTOSAR 架构开发并部署至控制器。",
-                "en": "Auto-generated code and deployed it to the controller under an AUTOSAR architecture."
-              },
-              {
-                "zh": "研究基于矢量控制（FOC）的双电机精确转矩控制算法。",
-                "en": "Researched a Field-Oriented Control (FOC) based dual-motor precise torque-control algorithm."
-              },
-              {
-                "zh": "引入线性自抗扰控制（LADRC），提升 ISG 电机在变负载工况下的抗扰转速跟踪性能。",
-                "en": "Introduced Linear Active Disturbance Rejection Control (LADRC) to improve the ISG motor's disturbance-rejection speed tracking under varying loads."
-              },
-              {
-                "zh": "独立开发基于 CAN 通讯的双电机控制上位机，实现场景测试、实时状态展示与控制器核心参数标定。",
-                "en": "Independently built a CAN-based dual-motor host application for scenario testing, real-time status display, and calibration of core controller parameters."
+                "zh": "非道路车辆具有负载突变频繁、低速大转矩运行时间长和工况切换复杂等特点。因此，项目不仅关注电机的稳态转矩精度，还重点研究负载扰动下的转速恢复、控制模式切换、限幅保护及控制器工程部署。",
+                "en": "Off-road vehicles face frequent load transients, prolonged low-speed/high-torque operation, and complex mode transitions. The project therefore addresses not only steady-state torque accuracy, but also speed recovery under disturbances, mode switching, limiting/protection, and production-oriented controller deployment."
               }
             ]
           },
           {
-            "heading": { "zh": "关键成果", "en": "Key Results" },
-            "type": "paragraph",
+            "heading": { "zh": "系统与控制架构", "en": "System & Control Architecture" },
+            "type": "steps",
             "content": {
-              "zh": "构建了从 Simulink 建模、自动代码生成到 AUTOSAR 部署的完整开发链路，实现双电机精确转矩控制；LADRC 显著提升了 ISG 电机在变负载下的转速跟踪抗扰能力，配合自研上位机完成场景测试与参数标定。",
-              "en": "Established a complete pipeline from Simulink modeling and auto-code generation to AUTOSAR deployment, achieving precise dual-motor torque control; LADRC markedly improved the ISG motor's disturbance-rejection speed tracking under varying loads, with the in-house host tool enabling scenario testing and calibration. "
-            }
+              "zh": "控制架构依次包括动力系统与 PMSM 被控对象建模、发电/驱动双电机独立控制通道、基于 FOC 的电流与转矩闭环，以及面向 AURIX TC387 和 AUTOSAR 的自动代码生成、部署与 CAN 联调。",
+              "en": "The architecture covers powertrain and PMSM plant modeling, independent generator/traction-motor control channels, FOC current and torque loops, and AUTOSAR deployment on the AURIX TC387 with CAN integration."
+            },
+            "items": [
+              {
+                "title": { "zh": "动力系统建模", "en": "Powertrain Modeling" },
+                "description": {
+                  "zh": "在 Simulink 中建立行星排混合动力系统、双电机控制器与被控对象模型，明确转速、转矩、电流、电角度及母线电压等接口。",
+                  "en": "Built the planetary hybrid powertrain, dual-motor controllers, and plant models in Simulink, defining interfaces for speed, torque, current, electrical angle, and DC-link voltage."
+                }
+              },
+              {
+                "title": { "zh": "双电机控制策略", "en": "Dual-Motor Control" },
+                "description": {
+                  "zh": "为发电电机与驱动电机建立独立控制通道，根据上层转矩/转速指令完成模式选择、参考量生成和执行器控制。",
+                  "en": "Created independent control channels for the generator and traction motors, handling mode selection, reference generation, and actuator control from supervisory torque/speed commands."
+                }
+              },
+              {
+                "title": { "zh": "FOC 电流与转矩控制", "en": "FOC Current & Torque Control" },
+                "description": {
+                  "zh": "完成 Clarke / Park 坐标变换、d/q 轴电流闭环、前馈解耦、输出限幅与 SVPWM 调制，将目标转矩转换为可执行的三相电压占空比。",
+                  "en": "Implemented Clarke/Park transforms, d/q current loops, feed-forward decoupling, output limiting, and SVPWM to translate torque commands into executable three-phase duty cycles."
+                }
+              },
+              {
+                "title": { "zh": "控制器部署与联调", "en": "Deployment & Integration" },
+                "description": {
+                  "zh": "按照 MBD 流程完成自动代码生成，并面向 AURIX TC387 与 AUTOSAR 软件架构进行接口集成、控制器部署和 CAN 联调。",
+                  "en": "Generated code through the MBD workflow and integrated/deployed it on an AURIX TC387 under an AUTOSAR software architecture, followed by CAN-based integration testing."
+                }
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "核心控制策略", "en": "Core Control Strategy" },
+            "type": "list",
+            "items": [
+              {
+                "zh": "速度控制通道根据目标转速与实际转速生成转矩需求，转矩控制通道结合电机特性映射生成 d/q 轴电流参考值。",
+                "en": "The speed-control path converts speed error into a torque demand, while the torque-control path maps the demand into d/q-axis current references using motor characteristics."
+              },
+              {
+                "zh": "电流环采用 PI 调节并加入交叉耦合补偿，结合母线电压约束进行电压矢量限幅，避免积分饱和与过调制。",
+                "en": "The current loops use PI regulation with cross-coupling compensation and DC-link-aware voltage-vector limiting to prevent integral windup and overmodulation."
+              },
+              {
+                "zh": "围绕启动、停机、转速模式、转矩模式和故障状态设计控制逻辑，并配置转矩、电流、转速及电压相关的限幅与保护。",
+                "en": "Designed control logic for start, stop, speed, torque, and fault states, with torque, current, speed, and voltage limits and protection."
+              },
+              {
+                "zh": "在 ISG 转速环引入 LADRC，利用扩张状态观测器估计负载扰动与模型不确定性，并在控制律中进行实时补偿。",
+                "en": "Introduced LADRC in the ISG speed loop, using an extended state observer to estimate load disturbances and model uncertainty for real-time compensation."
+              },
+              {
+                "zh": "针对极低速下观测噪声放大的问题保留 PI / LADRC 切换策略，在抗扰能力、噪声敏感性与计算开销之间进行工程折中。",
+                "en": "Retained PI/LADRC switching at very low speed, where observer noise becomes more significant, balancing disturbance rejection, noise sensitivity, and computational cost."
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "变负载控制效果", "en": "Load-Transient Results" },
+            "type": "metrics",
+            "content": {
+              "zh": "在负载由 30% 阶跃至 100% 的对比工况中，传统 PI 控制的转速跌落约为 85 rpm、恢复时间约 220 ms；采用 LADRC 后，转速跌落约为 22 rpm、恢复时间约 95 ms。考虑到扩张状态观测器在极低速下的噪声敏感性，低于约 50 rpm 时切换回 PI 控制。",
+              "en": "Under a 30% to 100% load step, PI control produced an approximately 85 rpm speed dip and 220 ms recovery time. LADRC reduced these to about 22 rpm and 95 ms. Below roughly 50 rpm, control switches back to PI because of observer noise sensitivity."
+            },
+            "items": [
+              {
+                "value": "30% → 100%",
+                "label": { "zh": "负载阶跃工况", "en": "Load step" },
+                "detail": { "zh": "用于比较 PI 与 LADRC 的抗扰性能", "en": "Used to compare PI and LADRC disturbance rejection" }
+              },
+              {
+                "value": "~85 rpm",
+                "label": { "zh": "PI 转速跌落", "en": "PI speed dip" },
+                "detail": { "zh": "恢复时间约 220 ms", "en": "Recovery time about 220 ms" }
+              },
+              {
+                "value": "~22 rpm",
+                "label": { "zh": "LADRC 转速跌落", "en": "LADRC speed dip" },
+                "detail": { "zh": "恢复时间约 95 ms", "en": "Recovery time about 95 ms" }
+              },
+              {
+                "value": "< 50 rpm",
+                "label": { "zh": "低速切换区间", "en": "Low-speed switch region" },
+                "detail": { "zh": "低速段切回 PI 以抑制观测抖动", "en": "Switches back to PI to suppress observer jitter" }
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "工程开发与验证流程", "en": "Engineering Workflow" },
+            "type": "steps",
+            "content": {
+              "zh": "工程流程包括：在 MIL 环境中完成控制器与 PMSM 被控对象闭环验证；整定电流环 PI、转速环 PI 与 LADRC 参数；完成模型接口和数据类型检查、自动代码生成及 AUTOSAR 软件集成；最后通过自研双电机 CAN 上位机开展变量观测、参数配置、故障诊断和台架闭环联调。",
+              "en": "The workflow includes MIL closed-loop verification, PI and LADRC tuning, model-interface and data-type checks, automatic code generation and AUTOSAR integration, followed by CAN-based measurement, calibration, diagnostics, and bench integration using an in-house dual-motor host tool."
+            },
+            "items": [
+              {
+                "title": { "zh": "MIL 模型验证", "en": "MIL Verification" },
+                "description": {
+                  "zh": "建立控制器与 PMSM 被控对象闭环模型，验证模式切换、指令跟踪、限幅和故障输入下的响应。",
+                  "en": "Closed the loop between controller and PMSM plant models to validate mode switching, command tracking, limiting, and fault responses."
+                }
+              },
+              {
+                "title": { "zh": "参数整定与对比", "en": "Tuning & Comparison" },
+                "description": {
+                  "zh": "完成电流环 PI、转速环 PI 及 LADRC 的 b0、控制带宽和观测器带宽整定，并通过变负载工况比较动态性能。",
+                  "en": "Tuned current-loop PI, speed-loop PI, and LADRC parameters including b0, controller bandwidth, and observer bandwidth, then compared transient performance under load changes."
+                }
+              },
+              {
+                "title": { "zh": "代码与软件集成", "en": "Code & Software Integration" },
+                "description": {
+                  "zh": "完成模型接口规范化、定点/数据类型检查、自动代码生成及 AUTOSAR 软件组件集成。",
+                  "en": "Standardized model interfaces, checked data types, generated code, and integrated the resulting AUTOSAR software components."
+                }
+              },
+              {
+                "title": { "zh": "CAN 标定与台架联调", "en": "CAN Calibration & Bench Integration" },
+                "description": {
+                  "zh": "开发双电机上位机，支持实时变量观测、参数配置、测试场景下发、故障诊断与双通道 CAN 通讯，并结合电机台架完成闭环联调。",
+                  "en": "Developed a dual-motor host tool for real-time measurement, parameter configuration, scenario execution, diagnostics, and dual-channel CAN communication, then used it for closed-loop bench integration."
+                }
+              }
+            ]
           },
           {
             "heading": { "zh": "个人贡献", "en": "My Contribution" },
-            "type": "paragraph",
+            "type": "list",
+            "items": [
+              {
+                "zh": "独立完成双电机控制策略的 Simulink 建模、接口定义、测试模型搭建与控制参数整定。",
+                "en": "Independently completed Simulink modeling, interface definition, test-harness construction, and parameter tuning for the dual-motor control strategy."
+              },
+              {
+                "zh": "完成 FOC 电流/转矩控制与 ISG 转速环 LADRC 的算法设计、对比验证和工程化处理。",
+                "en": "Designed and validated the FOC current/torque control and the LADRC-based ISG speed loop, including engineering-oriented protections and switching logic."
+              },
+              {
+                "zh": "参与自动代码生成、AUTOSAR 集成及 AURIX TC387 控制器部署，形成从模型到控制器的完整链路。",
+                "en": "Contributed to automatic code generation, AUTOSAR integration, and deployment on the AURIX TC387, completing the model-to-controller workflow."
+              },
+              {
+                "zh": "自主开发基于 CAN 的双电机控制上位机，用于运行控制、状态监测、波形分析、标定和故障诊断。",
+                "en": "Built a CAN-based dual-motor host application for run control, monitoring, waveform analysis, calibration, and fault diagnosis."
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "形成的知识与能力", "en": "Knowledge Gained" },
+            "type": "list",
+            "items": [
+              {
+                "zh": "理解 PMSM FOC 从坐标变换、电流采样、PI 解耦到 SVPWM 输出的完整控制链路。",
+                "en": "Built a system-level understanding of PMSM FOC from coordinate transforms and current sampling to decoupled PI control and SVPWM output."
+              },
+              {
+                "zh": "掌握 LADRC 中控制增益、控制器带宽与观测器带宽的整定逻辑，以及观测噪声与抗扰性能之间的权衡。",
+                "en": "Learned how to tune LADRC control gain, controller bandwidth, and observer bandwidth, and how to trade off observer noise against disturbance rejection."
+              },
+              {
+                "zh": "建立 MBD、自动代码、AUTOSAR、控制器部署、CAN 标定和台架验证之间的工程闭环意识。",
+                "en": "Developed an end-to-end engineering view spanning MBD, code generation, AUTOSAR, controller deployment, CAN calibration, and bench validation."
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "相关技术笔记", "en": "Related Technical Notes" },
+            "type": "links",
             "content": {
-              "zh": "独立完成控制算法的 Simulink 建模、FOC / LADRC 算法设计与整定、AUTOSAR 代码生成与控制器部署，并自主开发基于 CAN 的双电机控制上位机。",
-              "en": "Independently handled the Simulink modeling, FOC / LADRC design and tuning, AUTOSAR code generation and controller deployment, and built the CAN-based dual-motor host application from scratch."
-            }
+              "zh": "相关知识已整理为《FOC 矢量控制基础笔记》和《LADRC 调参速查表》，分别记录电流环控制链路、工程问题以及抗扰控制参数整定方法。",
+              "en": "Related knowledge is documented in the FOC fundamentals and LADRC tuning notes, covering the current-control chain, engineering issues, and disturbance-rejection tuning."
+            },
+            "items": [
+              {
+                "eyebrow": { "zh": "电机控制", "en": "Motor Control" },
+                "title": { "zh": "FOC 矢量控制基础笔记", "en": "FOC Vector-Control Fundamentals" },
+                "description": { "zh": "从 Clarke / Park 变换、电流环 PI 到常见工程问题。", "en": "Clarke/Park transforms, current-loop PI control, and common engineering issues." },
+                "href": "notes/note.html?id=motor-control%2Ffoc-basics"
+              },
+              {
+                "eyebrow": { "zh": "抗扰控制", "en": "Disturbance Rejection" },
+                "title": { "zh": "LADRC 调参速查表", "en": "LADRC Tuning Cheat Sheet" },
+                "description": { "zh": "记录 b0、控制带宽、观测器带宽的整定方法与变负载对比结果。", "en": "Tuning notes for b0 and controller/observer bandwidths, with load-transient comparisons." },
+                "href": "notes/note.html?id=motor-control%2Fladrc-cheatsheet"
+              }
+            ]
           }
         ],
         "images": [
           {
+            "src": "images/projects/motor/split1.png",
+            "caption": { "zh": "图 1：行星排功率分流混合动力系统结构", "en": "Fig. 1: Planetary power-split hybrid architecture" }
+          },
+          {
             "src": "images/projects/motor/motor_model2.png",
-            "caption": { "zh": "图：控制策略架构 / Simulink 模型", "en": "Fig: control architecture / Simulink model " }
+            "caption": { "zh": "图 2：控制器与 PMSM 被控对象的 MIL 闭环测试模型", "en": "Fig. 2: MIL closed-loop model of the controller and PMSM plant" }
+          },
+          {
+            "src": "images/projects/motor/motor_ui1.png",
+            "caption": { "zh": "图 3：自主开发的双电机 CAN 控制与标定上位机", "en": "Fig. 3: In-house dual-motor CAN control and calibration application" }
+          },
+          {
+            "src": "images/projects/motor/motor_split1.jpg",
+            "caption": { "zh": "图 4：双电机与行星排传动试验装置", "en": "Fig. 4: Dual-motor planetary transmission test rig" }
           }
         ],
         "sidebar": {
           "tech": ["Simulink", "MBD", "AUTOSAR", "FOC", "LADRC", "AURIX TC387", "CAN"],
           "period": { "zh": "2025.09 — 至今", "en": "2025.09 — Present" },
           "results": {
-            "zh": "硕士毕业设计 · 在研",
-            "en": "Master's thesis · In progress"
+            "zh": "硕士毕业设计 · 在研<br>LADRC：转速跌落约 22 rpm<br>恢复时间约 95 ms",
+            "en": "Master's thesis · In progress<br>LADRC: ~22 rpm speed dip<br>~95 ms recovery"
           },
           "keywords": [
             { "zh": "混合动力", "en": "Hybrid Powertrain" },
@@ -123,50 +297,189 @@
         "sections": [
           {
             "heading": { "zh": "项目背景", "en": "Background" },
-            "type": "paragraph",
-            "content": {
-              "zh": "随着智能网联汽车通信链路的开放，车载网络面临日益严峻的入侵与攻击风险。本项目作为国家重点研发项目的一部分，针对车载以太网的异常流量检测与车云协同防护展开研究。",
-              "en": "As connected-vehicle communication links open up, in-vehicle networks face increasingly serious intrusion risks. As part of a national key R&D project, this work studied anomaly detection on automotive Ethernet and vehicle-cloud collaborative protection."
-            }
+            "type": "paragraphs",
+            "paragraphs": [
+              {
+                "zh": "本项目属于国家重点研发项目的智能网联汽车网络安全研究内容。随着车载以太网、T-Box、云平台和外部通信接口不断增加，车辆内部网络从相对封闭的控制网络逐渐演变为多域互联系统，异常报文与网络攻击可能影响车辆控制与数据安全。",
+                "en": "This work formed part of a national key R&D project on connected-vehicle cybersecurity. As automotive Ethernet, T-Boxes, cloud platforms, and external interfaces expand, the in-vehicle network becomes a multi-domain connected system in which anomalous traffic can threaten vehicle control and data security."
+              },
+              {
+                "zh": "项目由“车载以太网异常检测”和“车—云交互演示平台”两部分组成：前者利用时序神经网络识别异常通信行为，后者将车辆侧数据经树莓派与 4G 网络上传至云端，用于展示监测、告警与防护流程。",
+                "en": "The project combined two workstreams: automotive-Ethernet anomaly detection using time-series neural networks, and a vehicle-cloud demonstration platform that forwarded vehicle-side data through a Raspberry Pi and 4G link for monitoring, alerting, and defense visualization."
+              }
+            ]
           },
           {
-            "heading": { "zh": "研究内容", "en": "Scope of Work" },
+            "heading": { "zh": "系统数据链路", "en": "System Data Path" },
+            "type": "steps",
+            "items": [
+              {
+                "title": { "zh": "车辆侧数据接入", "en": "Vehicle-Side Data Ingestion" },
+                "description": {
+                  "zh": "接收车辆网络状态与通信数据，将不同来源的信号整理为可供算法和演示平台使用的统一输入。",
+                  "en": "Ingested network-status and communication data from the vehicle side and normalized heterogeneous signals for the algorithm and demonstration platform."
+                }
+              },
+              {
+                "title": { "zh": "时序特征处理", "en": "Temporal Feature Processing" },
+                "description": {
+                  "zh": "围绕连续报文的时序关系构造模型输入，使算法能够识别单帧规则难以发现的持续性或组合型异常。",
+                  "en": "Constructed sequential inputs from continuous traffic so the model could identify persistent or combined anomalies that single-frame rules might miss."
+                }
+              },
+              {
+                "title": { "zh": "LSTM 异常检测", "en": "LSTM Anomaly Detection" },
+                "description": {
+                  "zh": "利用 LSTM 对通信序列进行建模，输出网络状态与异常判断结果，并将告警信息传递给可视化界面。",
+                  "en": "Modeled communication sequences with an LSTM, producing network-state and anomaly outputs for the visualization interface."
+                }
+              },
+              {
+                "title": { "zh": "树莓派与 4G 转发", "en": "Raspberry Pi & 4G Relay" },
+                "description": {
+                  "zh": "通过上位机 → 树莓派 CAN 报文 → 4G 网络 → 云端的链路完成车辆数据转发与车云软件联调。",
+                  "en": "Relayed vehicle data through the host → Raspberry Pi CAN frames → 4G → cloud path for end-to-end vehicle-cloud integration."
+                }
+              },
+              {
+                "title": { "zh": "监测与防护展示", "en": "Monitoring & Defense Visualization" },
+                "description": {
+                  "zh": "在演示平台中集中展示车辆网络拓扑、通信数据、异常概率、告警日志和防护操作，形成可演示的完整闭环。",
+                  "en": "Visualized vehicle-network topology, traffic, anomaly probability, alert logs, and defense actions in a unified end-to-end demo."
+                }
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "入侵检测方法", "en": "Intrusion-Detection Method" },
             "type": "list",
             "items": [
               {
-                "zh": "开发基于 LSTM 神经网络的车载以太网入侵检测系统，实现异常数据的实时监测与预警。",
-                "en": "Developed an LSTM-based intrusion detection system for automotive Ethernet, enabling real-time anomaly monitoring and alerting."
+                "zh": "对车载网络通信数据进行清洗、时间对齐与序列化处理，保证模型输入在时间维度上的一致性。",
+                "en": "Cleaned, time-aligned, and sequentialized in-vehicle network data to maintain consistent temporal inputs."
               },
               {
-                "zh": "负责云交互演示平台的界面设计。",
-                "en": "Responsible for the UI design of the cloud-interaction demo platform."
+                "zh": "利用 LSTM 对正常与异常通信模式的上下文关系进行建模，使检测结果不仅依赖单个报文特征。",
+                "en": "Used an LSTM to model contextual relationships across normal and anomalous traffic rather than relying only on individual-frame features."
               },
               {
-                "zh": "打通上位机 → 树莓派 CAN 报文 → 4G 网络 → 云端的完整数据链路。",
-                "en": "Built the full data link: host → Raspberry Pi CAN frames → 4G network → cloud."
+                "zh": "将模型推理结果封装为可供上位机调用的接口，并在界面中显示异常类别、概率变化和告警记录。",
+                "en": "Exposed inference results through an application interface and visualized anomaly classes, probability trends, and alert logs."
               },
               {
-                "zh": "结合内网穿透技术完成车云交互软件的联调与验证。",
-                "en": "Used intranet-penetration techniques to integrate and validate the vehicle-cloud interaction software."
+                "zh": "关注检测效果与实时性的平衡，避免模型推理和链路传输阻塞车辆状态刷新与告警展示。",
+                "en": "Balanced detection performance and real-time behavior so inference and data transmission did not block vehicle-state refresh or alert visualization."
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "可公开成果", "en": "Public Deliverables" },
+            "type": "metrics",
+            "items": [
+              {
+                "value": "LSTM",
+                "label": { "zh": "车载以太网检测模型", "en": "Automotive-Ethernet detector" },
+                "detail": { "zh": "面向连续通信序列的异常识别", "en": "Anomaly recognition for communication sequences" }
+              },
+              {
+                "value": "4-stage",
+                "label": { "zh": "完整车云链路", "en": "Vehicle-cloud path" },
+                "detail": { "zh": "上位机 / 树莓派 / 4G / 云端", "en": "Host / Raspberry Pi / 4G / cloud" }
+              },
+              {
+                "value": "Real-time",
+                "label": { "zh": "监测与告警", "en": "Monitoring & alerts" },
+                "detail": { "zh": "网络状态、异常概率与日志联动展示", "en": "Linked status, probability, and log visualization" }
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "工程实现重点", "en": "Engineering Focus" },
+            "type": "list",
+            "items": [
+              {
+                "zh": "将算法推理、通信接入和界面刷新解耦，降低单个模块阻塞对整套演示系统的影响。",
+                "en": "Decoupled inference, communication, and UI refresh so a slow module would not stall the complete demonstration system."
+              },
+              {
+                "zh": "统一车辆状态、网络数据和算法结果的数据格式，减少上位机、树莓派和云端之间的接口歧义。",
+                "en": "Unified data formats for vehicle state, network traffic, and algorithm output to reduce interface ambiguity across host, Raspberry Pi, and cloud."
+              },
+              {
+                "zh": "设计链路异常后的重连与状态恢复逻辑，使 4G 或云端连接波动时界面能够继续给出明确状态。",
+                "en": "Designed reconnection and state-recovery logic so the interface remained explicit during 4G or cloud-link interruptions."
+              },
+              {
+                "zh": "在界面中同时呈现车辆拓扑、原始通信信息、算法输出和防护日志，便于技术演示与问题定位。",
+                "en": "Presented network topology, raw communication data, model outputs, and defense logs together for technical demonstration and troubleshooting."
               }
             ]
           },
           {
             "heading": { "zh": "个人贡献", "en": "My Contribution" },
-            "type": "paragraph",
-            "content": {
-              "zh": "作为项目组成员，参与 LSTM 入侵检测模型的开发，并独立负责云交互演示平台的界面设计与车—云链路搭建。",
-              "en": "As a project team member, I contributed to the LSTM intrusion-detection model and independently owned the demo-platform UI and the vehicle-to-cloud data link."
-            }
+            "type": "list",
+            "items": [
+              {
+                "zh": "参与 LSTM 入侵检测模型开发，负责数据处理、训练调试及算法接口适配。",
+                "en": "Contributed to the LSTM intrusion-detection model, including data processing, training/debugging, and interface adaptation."
+              },
+              {
+                "zh": "独立负责车云交互演示平台的界面设计，将车辆状态、网络拓扑、异常检测和防护操作集成在同一界面。",
+                "en": "Independently designed the vehicle-cloud demo UI, integrating vehicle state, topology, anomaly detection, and defense operations."
+              },
+              {
+                "zh": "完成上位机、树莓派、CAN、4G 与云端之间的通信链路搭建和软件联调。",
+                "en": "Built and integrated the communication path across the host, Raspberry Pi, CAN, 4G, and cloud."
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "形成的知识与能力", "en": "Knowledge Gained" },
+            "type": "list",
+            "items": [
+              {
+                "zh": "理解时序模型在工业与车载异常检测中的适用场景，以及数据窗口、实时性和泛化能力之间的关系。",
+                "en": "Learned where time-series models fit industrial and automotive anomaly detection, and how windowing, latency, and generalization interact."
+              },
+              {
+                "zh": "掌握算法模型通过 API 接入工程软件的基本流程，能够处理数据格式、推理节拍和异常状态。",
+                "en": "Learned how to integrate an algorithm model into engineering software through APIs, including data formats, inference timing, and error states."
+              },
+              {
+                "zh": "积累树莓派、CAN、4G、云端与上位机多端联调经验，形成面向完整系统而非单一算法的开发视角。",
+                "en": "Gained multi-end integration experience across Raspberry Pi, CAN, 4G, cloud, and host software, developing a system-level rather than model-only perspective."
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "相关技术笔记", "en": "Related Technical Note" },
+            "type": "links",
+            "items": [
+              {
+                "eyebrow": { "zh": "深度学习", "en": "Deep Learning" },
+                "title": { "zh": "工业时序模型对比", "en": "Industrial Time-Series Model Comparison" },
+                "description": { "zh": "整理 Transformer、PatchTST、DLinear、MICN 等模型的结构特点与工程适用性。", "en": "A practical comparison of Transformer, PatchTST, DLinear, MICN, and related models." },
+                "href": "notes/note.html?id=deep-learning%2Ftime-series-models"
+              }
+            ]
           }
         ],
-        "images": [],
+        "images": [
+          {
+            "src": "images/projects/vehicle_network/network1.png",
+            "caption": { "zh": "图 1：深色主题下的车云交互与网络安全演示平台", "en": "Fig. 1: Vehicle-cloud cybersecurity demonstration platform — dark theme" }
+          },
+          {
+            "src": "images/projects/vehicle_network/network2.png",
+            "caption": { "zh": "图 2：车辆网络拓扑、通信数据与异常检测结果的集中展示", "en": "Fig. 2: Unified visualization of topology, traffic, and anomaly-detection output" }
+          }
+        ],
         "sidebar": {
           "tech": ["LSTM", "Python", "Raspberry Pi", "CAN", "4G", "Cloud"],
           "period": "2024.09 — 2025.06",
           "results": {
-            "zh": "国家重点研发项目<br>实时入侵检测与车云联调",
-            "en": "National key R&D project<br>Real-time IDS + vehicle-cloud integration"
+            "zh": "国家重点研发项目<br>LSTM 实时异常检测<br>打通完整车云演示链路",
+            "en": "National key R&D project<br>Real-time LSTM anomaly detection<br>End-to-end vehicle-cloud demo"
           },
           "keywords": [
             { "zh": "入侵检测", "en": "Intrusion Detection" },
@@ -198,32 +511,174 @@
         "sections": [
           {
             "heading": { "zh": "项目背景", "en": "Background" },
-            "type": "paragraph",
+            "type": "paragraphs",
+            "paragraphs": [
+              {
+                "zh": "车辆导航、时间同步、高精地图及部分智能驾驶功能依赖 GNSS 定位。民用卫星导航信号到达地面的功率较低，且传统接收机主要依据相关峰值完成捕获与跟踪，因此可能受到同频干扰或伪造导航信号的影响。",
+                "en": "Vehicle navigation, time synchronization, HD maps, and some assisted-driving functions depend on GNSS. Civil signals arrive at very low power, and conventional receivers rely heavily on correlation for acquisition and tracking, making them susceptible to interference or forged navigation signals."
+              },
+              {
+                "zh": "在中汽中心组织的汽车漏洞挖掘比赛中，团队围绕车载 GPS 欺骗与干扰开展授权安全测试，使用 HackRF 软件无线电设备验证多款目标车型的定位系统脆弱性，并记录导航与相关车辆功能的异常表现。",
+                "en": "In the CATARC automotive vulnerability-mining competition, the team conducted authorized GPS spoofing and interference tests with a HackRF SDR, evaluating positioning weaknesses across multiple target vehicles and recording navigation and related vehicle behavior."
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "安全与合规边界", "en": "Safety & Authorization Boundary" },
+            "type": "callout",
+            "label": { "zh": "仅限授权测试", "en": "Authorized Testing Only" },
             "content": {
-              "zh": "车载导航与众多智能驾驶功能依赖 GPS 定位，其无线信号易受欺骗与干扰攻击。在中汽中心组织的汽车漏洞挖掘比赛中，本团队主攻车载 GPS 安全方向，开展授权范围内的攻防测试。",
-              "en": "In-vehicle navigation and many ADAS functions rely on GPS, whose wireless signals are vulnerable to spoofing and jamming. In the CATARC-organized vulnerability-mining competition, our team focused on in-vehicle GPS security, performing authorized red-team testing."
+              "zh": "所有测试均应在获得明确授权、具备射频隔离或等效安全措施的环境中进行。本页面仅展示安全研究方法、现象与防御思路，不提供可直接复现的发射参数或攻击操作。",
+              "en": "All testing must be explicitly authorized and conducted with RF isolation or equivalent safeguards. This page presents methodology, observations, and defenses without publishing operational transmission parameters or attack instructions."
             }
           },
           {
-            "heading": { "zh": "技术要点", "en": "Approach" },
+            "heading": { "zh": "测试方法", "en": "Test Methodology" },
+            "type": "steps",
+            "items": [
+              {
+                "title": { "zh": "确认授权与测试边界", "en": "Define Scope & Authorization" },
+                "description": {
+                  "zh": "明确目标车辆、测试场地、允许的信号行为和停止条件，避免对公共频谱及无关设备造成影响。",
+                  "en": "Defined target vehicles, test venue, permitted signal behavior, and stop conditions to avoid affecting public spectrum or unrelated devices."
+                }
+              },
+              {
+                "title": { "zh": "记录正常基线", "en": "Capture a Normal Baseline" },
+                "description": {
+                  "zh": "记录车辆正常定位、搜星状态、导航轨迹和相关功能状态，为异常过程提供对照。",
+                  "en": "Recorded normal positioning, satellite status, navigation trajectory, and dependent function states as a baseline."
+                }
+              },
+              {
+                "title": { "zh": "配置受控测试信号", "en": "Configure Controlled Test Signals" },
+                "description": {
+                  "zh": "使用软件无线电在受控环境中生成测试信号，严格限制输出条件，并逐步观察接收机状态变化。",
+                  "en": "Generated controlled test signals with an SDR under restricted conditions and progressively observed receiver-state changes."
+                }
+              },
+              {
+                "title": { "zh": "执行实车验证", "en": "Validate on Real Vehicles" },
+                "description": {
+                  "zh": "对多款目标车型进行测试，记录定位漂移、导航异常、信号告警及依赖定位功能的降级行为。",
+                  "en": "Tested multiple target vehicles and recorded position drift, navigation anomalies, signal warnings, and degradation of positioning-dependent functions."
+                }
+              },
+              {
+                "title": { "zh": "整理漏洞结论", "en": "Document Findings" },
+                "description": {
+                  "zh": "对不同车型的响应差异进行归纳，输出测试现象、影响范围、风险判断和可行防御方向。",
+                  "en": "Compared vehicle responses and documented observations, affected functions, risk assessments, and feasible mitigation directions."
+                }
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "测试结果", "en": "Test Results" },
+            "type": "metrics",
+            "items": [
+              {
+                "value": { "zh": "多款车型", "en": "Multiple models" },
+                "label": { "zh": "实车覆盖", "en": "Vehicle coverage" },
+                "detail": { "zh": "对不同车载定位系统进行对比验证", "en": "Compared different in-vehicle positioning systems" }
+              },
+              {
+                "value": { "zh": "实车", "en": "Real vehicle" },
+                "label": { "zh": "验证环境", "en": "Validation environment" },
+                "detail": { "zh": "记录导航与相关功能响应", "en": "Observed navigation and dependent functions" }
+              },
+              {
+                "value": { "zh": "定位失效", "en": "Positioning loss" },
+                "label": { "zh": "关键现象", "en": "Primary finding" },
+                "detail": { "zh": "部分目标系统出现错误定位或无法正常定位", "en": "Some targets showed false or unavailable positioning" }
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "观察到的车辆响应", "en": "Observed Vehicle Responses" },
             "type": "list",
             "items": [
               {
-                "zh": "利用 HackRF 软件无线电设备，对车载 GPS 信号实施欺骗与干扰。",
-                "en": "Used the HackRF software-defined radio to spoof and jam in-vehicle GPS signals."
+                "zh": "部分车机导航位置偏离真实位置，并持续接受异常定位结果。",
+                "en": "Some infotainment systems deviated from the true location and continued accepting anomalous position output."
               },
               {
-                "zh": "在授权测试环境下对实车发起攻击，验证多款目标车型的定位脆弱性。",
-                "en": "Launched authorized attacks on real vehicles, verifying positioning vulnerabilities across several target models."
+                "zh": "部分系统能够提示卫星信号弱或定位异常，但提示与实际拒绝异常数据之间仍存在差异。",
+                "en": "Some systems warned of weak or abnormal satellite signals, but warning behavior did not always mean the anomalous data was rejected."
               },
               {
-                "zh": "成功使目标多款车型的 GPS 系统瘫痪，输出漏洞验证结论。",
-                "en": "Successfully disabled the GPS of multiple target models and delivered vulnerability findings."
+                "zh": "依赖定位或高精地图的车辆功能可能进入降级状态，说明定位安全问题会向上层应用传播。",
+                "en": "Functions dependent on positioning or HD maps could enter degraded modes, showing how positioning-security failures propagate upward."
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "防御与改进思路", "en": "Defense & Mitigation" },
+            "type": "list",
+            "items": [
+              {
+                "zh": "通过 IMU、轮速、视觉或激光里程计与 GNSS 进行多传感器融合，对不符合车辆运动连续性的定位突变进行否决。",
+                "en": "Fuse GNSS with IMU, wheel speed, visual odometry, or LiDAR odometry to reject position jumps inconsistent with vehicle motion."
+              },
+              {
+                "zh": "监测载噪比、接收功率、卫星多普勒相关性和多星信号变化，识别同源伪造信号的异常特征。",
+                "en": "Monitor carrier-to-noise ratio, received power, Doppler correlation, and multi-satellite behavior to detect characteristics of a common spoofing source."
+              },
+              {
+                "zh": "使用 GPS、北斗、Galileo、GLONASS 等多星座结果进行交叉一致性校验，提升攻击成本。",
+                "en": "Cross-check GPS, BeiDou, Galileo, GLONASS, and other constellations to increase the difficulty of successful spoofing."
+              },
+              {
+                "zh": "在车辆软件中建立定位可信度与降级策略，使异常定位不会直接传递给导航或智能驾驶功能。",
+                "en": "Introduce positioning confidence and degradation logic so anomalous GNSS data is not passed directly to navigation or assisted-driving functions."
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "个人贡献", "en": "My Contribution" },
+            "type": "paragraph",
+            "content": {
+              "zh": "在团队中主攻车载 GPS 欺骗与干扰方向，围绕 HackRF 软件无线电设备完成测试环境准备、受控信号验证、实车测试、现象记录与风险分析，并参与漏洞验证结论整理。",
+              "en": "I focused on in-vehicle GPS spoofing and interference, contributing to the HackRF-based test setup, controlled-signal validation, real-vehicle testing, behavior logging, risk analysis, and vulnerability reporting."
+            }
+          },
+          {
+            "heading": { "zh": "形成的知识与能力", "en": "Knowledge Gained" },
+            "type": "list",
+            "items": [
+              {
+                "zh": "理解 GNSS 接收机捕获、跟踪与定位输出的基本链路，以及低功率民用导航信号面临的安全风险。",
+                "en": "Developed an understanding of GNSS acquisition, tracking, and positioning output, and the security risks of low-power civil navigation signals."
+              },
+              {
+                "zh": "掌握授权汽车安全测试中的范围控制、实验记录、现象复现和风险评估方法。",
+                "en": "Learned scope control, experimental logging, reproducibility, and risk assessment for authorized automotive-security testing."
+              },
+              {
+                "zh": "形成从攻击现象反推防御方案的思路，能够把射频层异常与车辆功能安全降级联系起来。",
+                "en": "Learned to derive defensive strategies from observed attack behavior and connect RF-layer anomalies to vehicle-level degradation."
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "相关技术笔记", "en": "Related Technical Note" },
+            "type": "links",
+            "items": [
+              {
+                "eyebrow": { "zh": "汽车网络安全", "en": "Automotive Security" },
+                "title": { "zh": "车载 GPS 欺骗攻击入门", "en": "Introduction to In-Vehicle GPS Spoofing" },
+                "description": { "zh": "从信号脆弱性、授权测试现象和多传感器防御角度整理 GPS 安全知识。", "en": "A structured note on GNSS weaknesses, authorized test observations, and multi-sensor defenses." },
+                "href": "notes/note.html?id=automotive-security%2Fgps-spoofing-intro"
               }
             ]
           }
         ],
-        "images": [],
+        "images": [
+          {
+            "src": "images/projects/GPS_cheat/gps.png",
+            "caption": { "zh": "图：授权环境下的实车 GPS 安全测试与数据记录", "en": "Fig: Authorized in-vehicle GPS security testing and data logging" }
+          }
+        ],
         "sidebar": {
           "tech": ["HackRF", "SDR", "GNSS", "GPS Spoofing"],
           "period": "2025.05",
@@ -261,46 +716,159 @@
         "sections": [
           {
             "heading": { "zh": "项目背景", "en": "Background" },
-            "type": "paragraph",
-            "content": {
-              "zh": "中国汽车工程学会巴哈大赛要求参赛队伍自主设计、制造一辆越野赛车。悬架系统直接决定赛车在复杂越野路况下的通过性、操控性与可靠性。",
-              "en": "Baja SAE China challenges teams to design and build an off-road race car from scratch. The suspension directly governs the car's mobility, handling, and reliability on rough off-road terrain."
-            }
+            "type": "paragraphs",
+            "paragraphs": [
+              {
+                "zh": "中国汽车工程学会巴哈大赛要求参赛队伍自主完成越野赛车的设计、制造、装配与比赛验证。车辆需要通过耐久、越野和动态项目，对结构可靠性、通过性、可维修性与团队工程协作提出综合要求。",
+                "en": "Baja SAE China requires teams to design, manufacture, assemble, and validate an off-road race car. Endurance, rough-terrain, and dynamic events place combined demands on structural reliability, mobility, serviceability, and engineering teamwork."
+              },
+              {
+                "zh": "悬架系统连接车架、转向节与车轮，其几何和结构设计会直接影响轮胎接地、转向响应、车身姿态和越野冲击载荷。项目需要在运动学性能、结构强度、零部件质量和实际加工条件之间取得平衡。",
+                "en": "The suspension connects the chassis, upright, and wheels; its geometry and structure directly affect tire contact, steering response, body attitude, and off-road impact loads. The design therefore balances kinematics, strength, mass, and manufacturability."
+              }
+            ]
           },
           {
-            "heading": { "zh": "研究内容", "en": "Scope of Work" },
+            "heading": { "zh": "设计目标", "en": "Design Objectives" },
             "type": "list",
             "items": [
               {
-                "zh": "负责赛车悬架结构的方案设计与零部件加工。",
-                "en": "Owned the structural design of the suspension and fabrication of its parts."
+                "zh": "保证悬架在全行程运动中不与车架、轮胎、转向及传动零部件发生干涉。",
+                "en": "Prevent interference among the suspension, chassis, tires, steering, and drivetrain throughout full travel."
               },
               {
-                "zh": "使用 CATIA 建立悬架三维模型，ANSYS 进行强度与刚度分析。",
-                "en": "Built 3D suspension models in CATIA and ran strength/stiffness analysis in ANSYS."
+                "zh": "在越野冲击和制动/转向组合载荷下保证关键杆件、连接点和安装支架具有足够的强度与刚度。",
+                "en": "Provide adequate strength and stiffness for links, joints, and mounts under off-road impacts and combined braking/steering loads."
               },
               {
-                "zh": "利用 CATIA 的 DMU 模块完成运动干涉检查与装配校核。",
-                "en": "Used the CATIA DMU module for motion/interference checks and assembly validation."
+                "zh": "控制非簧载质量和结构复杂度，同时保证零件能够利用现有加工条件完成制造与装配。",
+                "en": "Control unsprung mass and structural complexity while keeping parts manufacturable and assemblable with available processes."
+              },
+              {
+                "zh": "为实车装配、维护和赛场快速检修预留合理空间，避免仅满足仿真而无法落地。",
+                "en": "Preserve space for assembly, maintenance, and rapid trackside repair so the design remains practical beyond simulation."
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "设计与验证流程", "en": "Design & Validation Workflow" },
+            "type": "steps",
+            "items": [
+              {
+                "title": { "zh": "整车布置与接口确认", "en": "Vehicle Packaging & Interfaces" },
+                "description": {
+                  "zh": "结合车架、轮胎、转向和动力系统布置确认悬架安装区域、连接关系与运动边界。",
+                  "en": "Confirmed suspension packaging, interfaces, and motion boundaries against the chassis, tires, steering, and powertrain layout."
+                }
+              },
+              {
+                "title": { "zh": "CATIA 三维结构设计", "en": "CATIA 3D Structural Design" },
+                "description": {
+                  "zh": "建立控制臂、安装支架及相关连接结构模型，并在整车装配中持续检查空间关系。",
+                  "en": "Modeled control arms, mounts, and related connections while continuously checking packaging in the complete vehicle assembly."
+                }
+              },
+              {
+                "title": { "zh": "ANSYS 强度校核", "en": "ANSYS Strength Validation" },
+                "description": {
+                  "zh": "根据典型越野冲击与组合载荷设置约束和载荷，对关键结构进行应力、变形和薄弱区域分析。",
+                  "en": "Applied representative off-road impact and combined-load cases to evaluate stress, deformation, and weak regions."
+                }
+              },
+              {
+                "title": { "zh": "DMU 运动干涉检查", "en": "DMU Motion & Interference Check" },
+                "description": {
+                  "zh": "在悬架跳动与转向组合运动下检查轮胎、杆件、车架及周边部件之间的动态间隙。",
+                  "en": "Checked dynamic clearances among tires, links, chassis, and adjacent parts under combined suspension travel and steering."
+                }
+              },
+              {
+                "title": { "zh": "加工装配与问题闭环", "en": "Fabrication, Assembly & Iteration" },
+                "description": {
+                  "zh": "参与零部件加工与实车装配，根据装配偏差、可达性和干涉问题对设计进行修正。",
+                  "en": "Participated in fabrication and vehicle assembly, revising the design based on tolerance, accessibility, and interference issues."
+                }
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "项目成果", "en": "Project Outcomes" },
+            "type": "metrics",
+            "items": [
+              {
+                "value": { "zh": "全国一等奖", "en": "National 1st Prize" },
+                "label": { "zh": "赛季成绩", "en": "Competition result" },
+                "detail": { "zh": "中国汽车工程学会巴哈大赛", "en": "Baja SAE China" }
+              },
+              {
+                "value": "CATIA + DMU",
+                "label": { "zh": "结构与运动校核", "en": "Structure & motion validation" },
+                "detail": { "zh": "三维建模、装配与动态干涉检查", "en": "3D modeling, assembly, and interference checks" }
+              },
+              {
+                "value": "ANSYS",
+                "label": { "zh": "有限元验证", "en": "FEA validation" },
+                "detail": { "zh": "关键结构强度与变形分析", "en": "Strength and deformation of critical structures" }
               }
             ]
           },
           {
             "heading": { "zh": "个人贡献", "en": "My Contribution" },
-            "type": "paragraph",
-            "content": {
-              "zh": "作为悬架组成员，承担悬架结构设计、有限元强度校核与运动学校核工作，并参与实车加工装配。",
-              "en": "As a suspension-team member, I handled structural design, FEA strength checks, and kinematic validation, and took part in fabrication and assembly. "
-            }
+            "type": "list",
+            "items": [
+              {
+                "zh": "承担悬架结构方案与零部件三维设计，持续协调悬架与车架、转向及车轮系统之间的空间关系。",
+                "en": "Designed suspension structures and parts while coordinating packaging with the chassis, steering, and wheel systems."
+              },
+              {
+                "zh": "使用 ANSYS 对关键结构进行有限元分析，根据应力集中与变形结果优化局部结构。",
+                "en": "Performed FEA on critical structures and refined local geometry based on stress concentration and deformation results."
+              },
+              {
+                "zh": "使用 CATIA DMU 完成悬架运动过程中的干涉与装配校核。",
+                "en": "Used CATIA DMU to validate suspension motion, interference, and assembly."
+              },
+              {
+                "zh": "参与零件加工、实车装配及现场问题处理，使数字模型能够转化为可制造、可装配的实车结构。",
+                "en": "Participated in part fabrication, vehicle assembly, and issue resolution, translating digital models into a manufacturable vehicle."
+              }
+            ]
+          },
+          {
+            "heading": { "zh": "形成的知识与能力", "en": "Knowledge Gained" },
+            "type": "list",
+            "items": [
+              {
+                "zh": "建立从整车布置、结构设计、有限元分析到加工装配的机械系统开发流程认识。",
+                "en": "Built an end-to-end understanding from vehicle packaging and structural design to FEA, fabrication, and assembly."
+              },
+              {
+                "zh": "理解结构强度、质量、运动空间、制造误差和维护便利性之间需要同步权衡。",
+                "en": "Learned to balance structural strength, mass, motion clearance, manufacturing tolerances, and serviceability."
+              },
+              {
+                "zh": "认识到仿真结果必须结合真实边界条件与加工约束进行判断，工程闭环比单纯获得漂亮云图更重要。",
+                "en": "Learned that simulation results must be judged against real boundary conditions and manufacturing constraints; closing the engineering loop matters more than producing attractive contour plots."
+              }
+            ]
           }
         ],
-        "images": [],
+        "images": [
+          {
+            "src": "images/projects/baja/baja1.png",
+            "caption": { "zh": "图 1：巴哈越野赛车整车 CATIA 装配模型", "en": "Fig. 1: Complete Baja race-car CATIA assembly" }
+          },
+          {
+            "src": "images/projects/baja/baja2.png",
+            "caption": { "zh": "图 2：整车侧视图与悬架/车架空间布置", "en": "Fig. 2: Vehicle side view and suspension/chassis packaging" }
+          }
+        ],
         "sidebar": {
           "tech": ["CATIA", "ANSYS", "DMU"],
           "period": "2021.11 — 2022.11",
           "results": {
-            "zh": "悬架结构设计 / 加工<br>强度与运动校核",
-            "en": "Suspension design / fabrication<br>Strength & motion validation"
+            "zh": "全国一等奖<br>悬架结构设计与加工<br>强度 / 运动 / 装配校核",
+            "en": "National 1st Prize<br>Suspension design & fabrication<br>Strength / motion / assembly validation"
           },
           "keywords": [
             { "zh": "巴哈赛车", "en": "Baja" },

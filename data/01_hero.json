@@ -2,23 +2,24 @@
   "greeting": { "zh": "你好，我是", "en": "Hello, I'm" },
   "name": { "zh": "袁修玮", "en": "Yuan Xiuwei" },
   "title": {
-    "zh": "车辆工程 · 硕士在读",
-    "en": "Vehicle Engineering · M.S. Candidate"
+    "zh": "线控底盘 · 电机控制 · 硕士在读",
+    "en": "Chassis-by-Wire · Motor Control · M.S. Candidate"
   },
   "subtitle": {
     "zh": "Beijing Institute of Technology",
     "en": "北京理工大学"
   },
   "description": {
-    "zh": "北京理工大学车辆工程硕士在读。聚焦电机控制算法、混合动力域控制策略与深度学习，横跨工业故障诊断、车规级端侧部署与汽车网络安全等方向，致力于让前沿算法在真实车辆上落地。",
-    "en": "M.S. candidate in Vehicle Engineering at Beijing Institute of Technology. Focused on motor control algorithms, hybrid-powertrain domain control, and deep learning — from industrial fault diagnosis to automotive-grade edge deployment — bringing cutting-edge algorithms onto real vehicles."
+    "zh": "北京理工大学车辆工程硕士在读，聚焦线控底盘与电机控制。具备车载电动执行器多闭环控制、线控制动冗余与故障降级、FOC / LADRC、电控标定及车规控制器部署经验，致力于将控制算法可靠地落地到真实执行器与车辆系统。",
+    "en": "M.S. candidate in Vehicle Engineering at Beijing Institute of Technology, focused on chassis-by-wire and motor control. Experienced in cascaded electric-actuator control, brake-by-wire redundancy and degradation, FOC / LADRC, calibration, and automotive controller deployment."
   },
   "images": [
     "images/hero/hero1.png",
     "images/hero/hero2.jpg",
     "images/hero/hero3.png",
     "images/hero/hero4.png",
-    "images/hero/hero5.jpg"
+    "images/hero/hero5.jpg",
+    "images/hero/hero6.jpg"
   ],
   "carousel": {
     "interval": 5000,
@@ -27,10 +28,10 @@
   "verticals": {
     "label": { "zh": "核心方向", "en": "Key Verticals" },
     "items": [
+      { "zh": "线控制动与冗余安全", "en": "Brake-by-Wire & Redundancy" },
       { "zh": "电机控制算法（FOC / LADRC）", "en": "Motor Control (FOC / LADRC)" },
-      { "zh": "域控制策略（MBD / AUTOSAR）", "en": "Domain Control (MBD / AUTOSAR)" },
-      { "zh": "深度学习与时序模型", "en": "Deep Learning & Time-Series" },
-      { "zh": "智能网联与车规级部署", "en": "Connected & Automotive-Grade" }
+      { "zh": "MBD / Stateflow / AUTOSAR", "en": "MBD / Stateflow / AUTOSAR" },
+      { "zh": "标定、诊断与台架验证", "en": "Calibration, Diagnostics & Bench Validation" }
     ]
   },
   "cta": [

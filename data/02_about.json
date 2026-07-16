@@ -2,12 +2,12 @@
   "sectionTitle": { "zh": "关于我", "en": "About Me" },
   "paragraphs": [
     {
-      "zh": "我是袁修玮，北京理工大学车辆工程专业硕士在读，本科毕业于武汉理工大学车辆工程专业。研究与实践横跨深度学习算法、混合动力域控制策略、与智能网联汽车网络安全，擅长把前沿算法工程化、落地到真实车辆与控制器上。",
-      "en": "I'm Yuan Xiuwei, an M.S. candidate in Vehicle Engineering at Beijing Institute of Technology, with a B.E. in Vehicle Engineering from Wuhan University of Technology. My work spans deep learning, hybrid-powertrain domain control, and connected-vehicle cybersecurity — turning cutting-edge algorithms into engineering that runs on real vehicles and controllers."
+      "zh": "我是袁修玮，北京理工大学车辆工程专业硕士在读，本科毕业于武汉理工大学车辆工程专业。当前以线控底盘与电机控制为核心方向，实践覆盖车载电动执行器多闭环控制、线控制动冗余与故障降级、混合动力双电机 FOC / LADRC 以及车规控制器部署。",
+      "en": "I'm Yuan Xiuwei, an M.S. candidate in Vehicle Engineering at Beijing Institute of Technology, with a B.E. in Vehicle Engineering from Wuhan University of Technology. My primary focus is chassis-by-wire and motor control, spanning cascaded electric-actuator control, brake-by-wire redundancy and degradation, dual-motor FOC / LADRC, and automotive controller deployment."
     },
     {
-      "zh": "熟练使用 Python（深度学习 / 数据处理）与 C/C++（嵌入式开发），掌握 PyTorch、MATLAB/Simulink、CATIA、ANSYS、HackRF 等工具链。曾在中车工业研究院、经纬恒润从事智能算法研发，参与国家重点研发项目，并在多项竞赛中获奖。",
-      "en": "Proficient in Python (deep learning / data processing) and C/C++ (embedded development), with a toolchain spanning PyTorch, MATLAB/Simulink, CATIA, ANSYS, and HackRF. I've worked on intelligent-algorithm R&D at CRRC and Hirain Technologies, contributed to a national key R&D programme, and won awards in several competitions."
+      "zh": "具备从控制策略建模、状态机设计、自动代码与集成，到 CAN 标定、底层追踪和台架验证的开发链路经验；熟悉 Simulink / Stateflow、CANape、Lauterbach、AUTOSAR、AURIX TC387，并能使用 C/C++ 与 Python 完成嵌入式开发和工程自动化。",
+      "en": "Experienced across the control-development workflow, from strategy modeling, state-machine design, code integration, and deployment to CAN calibration, low-level tracing, and bench validation. Familiar with Simulink / Stateflow, CANape, Lauterbach, AUTOSAR, AURIX TC387, C/C++, and Python automation."
     }
   ],
   "info": [
@@ -21,7 +21,7 @@
     },
     {
       "label": { "zh": "研究方向", "en": "Focus" },
-      "value": { "zh": "电机控制算法 · 深度学习 · 域控制开发", "en": "Motor Control Algorithms · Deep Learning · Domain Control Development" }
+      "value": { "zh": "线控底盘 · 电机控制 · 车规控制器开发", "en": "Chassis-by-Wire · Motor Control · Automotive Controllers" }
     },
     {
       "label": { "zh": "政治面貌", "en": "Affiliation" },

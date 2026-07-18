@@ -1,7 +1,7 @@
 {
   "sectionTitle": { "zh": "日常生活", "en": "Personal Life" },
   "banner": {
-    "image": "images/daily_life/all1.jpg",
+    "image": "images/daily_life/all1.webp",
     "eyebrow": { "zh": "运动 · 旅途 · 镜头", "en": "Move · Travel · Capture" },
     "title": {
       "zh": "",
@@ -43,11 +43,11 @@
         "en": "Heading out to mountains and cities on weekends — different scenery, different thoughts, and I come back ready to focus."
       },
       "images": [
-        "images/daily_life/travel5.jpg",
-        "images/daily_life/travel4.jpg",
-        "images/daily_life/travel2.jpg",
-        "images/daily_life/travel1.jpg",
-        "images/daily_life/travel3.jpg"
+        "images/daily_life/travel5.webp",
+        "images/daily_life/travel4.webp",
+        "images/daily_life/travel2.webp",
+        "images/daily_life/travel1.webp",
+        "images/daily_life/travel3.webp"
       ]
     },
     {
@@ -58,8 +58,8 @@
         "en": "After-work or weekend rides — pushing from the city into countryside roads. A steady cadence settles the mind."
       },
       "images": [
-        "images/daily_life/cycling1.jpg",
-        "images/daily_life/cycling2.jpg"
+        "images/daily_life/cycling1.webp",
+        "images/daily_life/cycling2.webp"
       ]
     },
     {
@@ -70,11 +70,11 @@
         "en": "Basketball, table tennis, and badminton on rotation. I love team play and the small split-second reads of racket sports. I love running and love marathons. I enjoy the feeling of running and racing against time on the road."
       },
       "images": [
-        "images/daily_life/marathon2.jpg",
-        "images/daily_life/badminton1.jpg",
-        "images/daily_life/marathon1.jpg",
-        "images/daily_life/basketball1.jpg",
-        "images/daily_life/sportmeeting1.jpg"
+        "images/daily_life/marathon2.webp",
+        "images/daily_life/badminton1.webp",
+        "images/daily_life/marathon1.webp",
+        "images/daily_life/basketball1.webp",
+        "images/daily_life/sportmeeting1.webp"
       ]
     },
     {
@@ -85,14 +85,14 @@
         "en": "Watching structure, light, and street moments with an engineer's eye — letting the camera keep a trace of daily life."
       },
       "images": [
-        "images/daily_life/life_log4.jpg",
-        "images/daily_life/life_log5.jpg",
+        "images/daily_life/life_log4.webp",
+        "images/daily_life/life_log5.webp",
         "images/daily_life/life_log7.jpg",
-        "images/daily_life/life_log8.jpg",
-        "images/daily_life/life_log3.jpg",
-        "images/daily_life/life_log1.jpg",
-        "images/daily_life/life_log2.jpg",
-        "images/daily_life/life_log6.jpg"
+        "images/daily_life/life_log8.webp",
+        "images/daily_life/life_log3.webp",
+        "images/daily_life/life_log1.webp",
+        "images/daily_life/life_log2.webp",
+        "images/daily_life/life_log6.webp"
       ]
     }
   ]

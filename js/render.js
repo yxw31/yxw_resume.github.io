@@ -184,10 +184,15 @@
 
       const heroSlides = heroImgs.map(function (src, i) {
         const fullSrc = esc(BASE + src);
+        const blurAttr = i === 0
+          ? ' data-src="' + fullSrc + '"'
+          : ' data-carousel-src="' + fullSrc + '"';
+        const imageAttr = i === 0
+          ? ' src="' + fullSrc + '" loading="eager" fetchpriority="high"'
+          : ' data-carousel-src="' + fullSrc + '" loading="lazy"';
         return '<div class="carousel-slide' + (i === 0 ? ' active' : '') + '">' +
-                 '<div class="img-blur" data-src="' + fullSrc + '" aria-hidden="true"></div>' +
-                 '<img src="' + fullSrc + '" alt="' + heroAlt + '" ' +
-                   'loading="' + (i === 0 ? 'eager' : 'lazy') + '" />' +
+                 '<div class="img-blur"' + blurAttr + ' aria-hidden="true"></div>' +
+                 '<img' + imageAttr + ' alt="' + heroAlt + '" decoding="async" />' +
                '</div>';
       }).join('');
 
@@ -275,7 +280,7 @@
     const avatarBlock =
       '<div class="about-avatar' + (hasAvatar ? ' has-photo' : ' no-photo') + '">' +
         '<div class="avatar-frame">' +
-          '<img src="' + avatarSrc + '" alt="' + esc(t(data.sectionTitle, lang) || 'Avatar') + '" />' +
+          '<img src="' + avatarSrc + '" alt="' + esc(t(data.sectionTitle, lang) || 'Avatar') + '" loading="lazy" decoding="async" />' +
           (hasAvatar ? '' : '<span class="avatar-hint">' + esc(avatarHint) + '</span>') +
         '</div>' +
       '</div>';
@@ -338,8 +343,8 @@
       const bSrc = esc(BASE + b.image);
       banner =
         '<div class="timeline-banner">' +
-          '<div class="img-blur" data-src="' + bSrc + '" aria-hidden="true"></div>' +
-          '<img src="' + bSrc + '" alt="' + esc(t(b.title, lang) || '') + '" />' +
+          '<div class="img-blur" data-lazy-src="' + bSrc + '" aria-hidden="true"></div>' +
+          '<img src="' + bSrc + '" alt="' + esc(t(b.title, lang) || '') + '" loading="lazy" decoding="async" />' +
           '<div class="timeline-banner-overlay">' + eyebrow + bTitle + '</div>' +
         '</div>';
     }
@@ -384,15 +389,21 @@
       if (!imgList.length) return '';
 
       const altText = esc(t(p.title, lang) || '');
+      const multi = imgList.length > 1;
       const slides = imgList.map(function (src, i) {
         const fullSrc = esc(BASE + src);
+        const blurAttr = multi
+          ? ' data-carousel-src="' + fullSrc + '"'
+          : ' data-lazy-src="' + fullSrc + '"';
+        const imageAttr = multi
+          ? ' data-carousel-src="' + fullSrc + '"'
+          : ' src="' + fullSrc + '"';
         return '<div class="carousel-slide' + (i === 0 ? ' active' : '') + '">' +
-                 '<div class="img-blur" data-src="' + fullSrc + '" aria-hidden="true"></div>' +
-                 '<img src="' + fullSrc + '" alt="' + altText + '" loading="lazy" />' +
+                 '<div class="img-blur"' + blurAttr + ' aria-hidden="true"></div>' +
+                 '<img' + imageAttr + ' alt="' + altText + '" loading="lazy" decoding="async" />' +
                '</div>';
       }).join('');
 
-      const multi = imgList.length > 1;
       const navHtml = multi
         ? '<button type="button" class="carousel-nav prev" aria-label="Previous">' + chevL + '</button>' +
           '<button type="button" class="carousel-nav next" aria-label="Next">' + chevR + '</button>'
@@ -432,8 +443,8 @@
       const lbSrc = esc(BASE + b.image);
       bannerHtml =
         '<div class="timeline-banner life-banner">' +
-          '<div class="img-blur" data-src="' + lbSrc + '" aria-hidden="true"></div>' +
-          '<img src="' + lbSrc + '" alt="' + esc(t(b.title, lang) || '') + '" />' +
+          '<div class="img-blur" data-lazy-src="' + lbSrc + '" aria-hidden="true"></div>' +
+          '<img src="' + lbSrc + '" alt="' + esc(t(b.title, lang) || '') + '" loading="lazy" decoding="async" />' +
           '<div class="timeline-banner-overlay">' + eyebrow + bTitle + '</div>' +
         '</div>';
     }
@@ -469,6 +480,7 @@
   // Timers are tracked globally so a re-render (e.g. on language toggle)
   // doesn't leak intervals.
   const _carouselTimers = new Map();   // containerEl → timer
+  const _carouselObservers = new Map(); // containerEl → IntersectionObserver
 
   function clearCarousels(scope) {
     _carouselTimers.forEach(function (t, el) {
@@ -477,6 +489,30 @@
         _carouselTimers.delete(el);
       }
     });
+    _carouselObservers.forEach(function (observer, el) {
+      if (!scope || scope.contains(el) || scope === el) {
+        observer.disconnect();
+        _carouselObservers.delete(el);
+      }
+    });
+  }
+
+  function hydrateCarouselSlide(slide) {
+    if (!slide) return;
+
+    const image = slide.querySelector('img[data-carousel-src]');
+    if (image) {
+      const src = image.getAttribute('data-carousel-src');
+      if (src) image.setAttribute('src', src);
+      image.removeAttribute('data-carousel-src');
+    }
+
+    const blur = slide.querySelector('.img-blur[data-carousel-src]');
+    if (blur) {
+      const src = blur.getAttribute('data-carousel-src');
+      if (src) blur.style.backgroundImage = 'url("' + src + '")';
+      blur.removeAttribute('data-carousel-src');
+    }
   }
 
   function bindCarousels(root, containerSelector, interval, pauseOnHover) {
@@ -488,20 +524,31 @@
       const dots    = containerEl.querySelectorAll('.carousel-dots .dot');
       const prevBtn = containerEl.querySelector('.carousel-nav.prev');
       const nextBtn = containerEl.querySelector('.carousel-nav.next');
-      if (slides.length <= 1) return;
+      if (slides.length <= 1) {
+        hydrateCarouselSlide(slides[0]);
+        return;
+      }
 
       let current = 0;
       let timer = null;
+      let activated = false;
 
       function setActive(idx) {
         current = (idx + slides.length) % slides.length;
+        hydrateCarouselSlide(slides[current]);
         slides.forEach(function (s, i) { s.classList.toggle('active', i === current); });
         dots.forEach(function (d, i)   { d.classList.toggle('active', i === current); });
+        // Preload only the next slide so transitions remain smooth without
+        // downloading the entire carousel on first paint.
+        setTimeout(function () {
+          hydrateCarouselSlide(slides[(current + 1) % slides.length]);
+        }, 300);
       }
       function step()  { setActive(current + 1); }
       function back()  { setActive(current - 1); }
 
       function startTimer() {
+        if (!activated) return;
         stopTimer();
         timer = setInterval(step, interval);
         _carouselTimers.set(containerEl, timer);
@@ -513,10 +560,17 @@
         timer = null;
       }
 
-      if (prevBtn) prevBtn.addEventListener('click', function (e) { e.preventDefault(); back(); startTimer(); });
-      if (nextBtn) nextBtn.addEventListener('click', function (e) { e.preventDefault(); step(); startTimer(); });
+      function activate() {
+        if (activated) return;
+        activated = true;
+        setActive(0);
+        startTimer();
+      }
+
+      if (prevBtn) prevBtn.addEventListener('click', function (e) { e.preventDefault(); activate(); back(); startTimer(); });
+      if (nextBtn) nextBtn.addEventListener('click', function (e) { e.preventDefault(); activate(); step(); startTimer(); });
       dots.forEach(function (d, i) {
-        d.addEventListener('click', function (e) { e.preventDefault(); setActive(i); startTimer(); });
+        d.addEventListener('click', function (e) { e.preventDefault(); activate(); setActive(i); startTimer(); });
       });
 
       if (pauseOnHover) {
@@ -524,7 +578,19 @@
         containerEl.addEventListener('mouseleave', startTimer);
       }
 
-      startTimer();
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function (entries) {
+          if (entries.some(function (entry) { return entry.isIntersecting; })) {
+            activate();
+            observer.disconnect();
+            _carouselObservers.delete(containerEl);
+          }
+        }, { rootMargin: '320px 0px' });
+        observer.observe(containerEl);
+        _carouselObservers.set(containerEl, observer);
+      } else {
+        activate();
+      }
     });
   }
 
@@ -540,8 +606,8 @@
       const coverSrc = esc(p.cover || 'images/placeholder.svg');
       const cover =
         '<div class="project-cover">' +
-          '<div class="img-blur" data-src="' + coverSrc + '" aria-hidden="true"></div>' +
-          '<img src="' + coverSrc + '" alt="' + esc(t(p.title, lang)) + '" />' +
+          '<div class="img-blur" data-lazy-src="' + coverSrc + '" aria-hidden="true"></div>' +
+          '<img src="' + coverSrc + '" alt="' + esc(t(p.title, lang)) + '" loading="lazy" decoding="async" />' +
           '<span class="project-index">' + esc(idx) + '</span>' +
         '</div>';
       const tech = (p.tech || []).map(function (tag) { return '<span>' + esc(t(tag, lang)) + '</span>'; }).join('');
@@ -773,6 +839,8 @@
   // For each `<div class="img-blur" data-src="...">` in the tree, sets a
   // background-image from data-src. We use data-src instead of inline style
   // to avoid HTML-escape headaches when paths contain quotes / spaces.
+  let _blurObserver = null;
+
   function applyBlurBackdrops(root) {
     (root || document).querySelectorAll('.img-blur[data-src]').forEach(function (el) {
       const src = el.getAttribute('data-src');
@@ -780,6 +848,28 @@
         el.style.backgroundImage = 'url("' + src + '")';
       }
     });
+
+    if (_blurObserver) _blurObserver.disconnect();
+    const lazyBlurs = (root || document).querySelectorAll('.img-blur[data-lazy-src]');
+    function loadBlur(el) {
+      const src = el.getAttribute('data-lazy-src');
+      if (src) el.style.backgroundImage = 'url("' + src + '")';
+      el.removeAttribute('data-lazy-src');
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      lazyBlurs.forEach(loadBlur);
+      return;
+    }
+
+    _blurObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        loadBlur(entry.target);
+        _blurObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '320px 0px' });
+    lazyBlurs.forEach(function (el) { _blurObserver.observe(el); });
   }
 
   // --- Language switching ---

@@ -14,12 +14,12 @@
     "en": "M.S. candidate in Vehicle Engineering at Beijing Institute of Technology, focused on chassis-by-wire and motor control. Experienced in cascaded electric-actuator control, brake-by-wire redundancy and degradation, FOC / LADRC, calibration, and automotive controller deployment."
   },
   "images": [
-    "images/hero/hero1.png",
-    "images/hero/hero2.jpg",
-    "images/hero/hero3.png",
-    "images/hero/hero4.png",
-    "images/hero/hero5.jpg",
-    "images/hero/hero6.jpg"
+    "images/hero/hero1.webp",
+    "images/hero/hero2.webp",
+    "images/hero/hero3.webp",
+    "images/hero/hero4.webp",
+    "images/hero/hero5.webp",
+    "images/hero/hero6.webp"
   ],
   "carousel": {
     "interval": 5000,

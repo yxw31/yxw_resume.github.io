@@ -21,7 +21,7 @@
         "en": "Powertrain domain-controller strategy for planetary-gear hybrid off-road vehicles — dual-motor precise torque control and LADRC disturbance-rejection speed tracking, built with MBD + AUTOSAR."
       },
       "icon": "cpu",
-      "cover": "images/projects/motor/motor_model1.png",
+      "cover": "images/projects/motor/motor_model1.webp",
       "tech": ["Simulink", "AUTOSAR", "FOC / LADRC", "AURIX TC387"],
       "detail": {
         "subtitle": {
@@ -244,19 +244,19 @@
         ],
         "images": [
           {
-            "src": "images/projects/motor/split1.png",
+            "src": "images/projects/motor/split1.webp",
             "caption": { "zh": "图 1：行星排功率分流混合动力系统结构", "en": "Fig. 1: Planetary power-split hybrid architecture" }
           },
           {
-            "src": "images/projects/motor/motor_model2.png",
+            "src": "images/projects/motor/motor_model2.webp",
             "caption": { "zh": "图 2：控制器与 PMSM 被控对象的 MIL 闭环测试模型", "en": "Fig. 2: MIL closed-loop model of the controller and PMSM plant" }
           },
           {
-            "src": "images/projects/motor/motor_ui1.png",
+            "src": "images/projects/motor/motor_ui1.webp",
             "caption": { "zh": "图 3：自主开发的双电机 CAN 控制与标定上位机", "en": "Fig. 3: In-house dual-motor CAN control and calibration application" }
           },
           {
-            "src": "images/projects/motor/motor_split1.jpg",
+            "src": "images/projects/motor/motor_split1.webp",
             "caption": { "zh": "图 4：双电机与行星排传动试验装置", "en": "Fig. 4: Dual-motor planetary transmission test rig" }
           }
         ],
@@ -287,7 +287,7 @@
         "en": "National key R&D project: an LSTM-based automotive-Ethernet intrusion detection system, plus a vehicle-to-cloud demo platform (host → Raspberry Pi → 4G → cloud)."
       },
       "icon": "shield",
-      "cover": "images/projects/vehicle_network/network1.png",
+      "cover": "images/projects/vehicle_network/network1.webp",
       "tech": ["LSTM", "Python", "Raspberry Pi", "CAN"],
       "detail": {
         "subtitle": {
@@ -466,11 +466,11 @@
         ],
         "images": [
           {
-            "src": "images/projects/vehicle_network/network1.png",
+            "src": "images/projects/vehicle_network/network1.webp",
             "caption": { "zh": "图 1：深色主题下的车云交互与网络安全演示平台", "en": "Fig. 1: Vehicle-cloud cybersecurity demonstration platform — dark theme" }
           },
           {
-            "src": "images/projects/vehicle_network/network2.png",
+            "src": "images/projects/vehicle_network/network2.webp",
             "caption": { "zh": "图 2：车辆网络拓扑、通信数据与异常检测结果的集中展示", "en": "Fig. 2: Unified visualization of topology, traffic, and anomaly-detection output" }
           }
         ],
@@ -501,7 +501,7 @@
         "en": "CATARC automotive vulnerability-mining competition — focused on in-vehicle GPS spoofing/jamming, attacking real vehicles with HackRF."
       },
       "icon": "radio",
-      "cover": "images/projects/GPS_cheat/gps.png",
+      "cover": "images/projects/GPS_cheat/gps.webp",
       "tech": ["HackRF", "SDR", "GPS Spoofing"],
       "detail": {
         "subtitle": {
@@ -675,7 +675,7 @@
         ],
         "images": [
           {
-            "src": "images/projects/GPS_cheat/gps.png",
+            "src": "images/projects/GPS_cheat/gps.webp",
             "caption": { "zh": "图：授权环境下的实车 GPS 安全测试与数据记录", "en": "Fig: Authorized in-vehicle GPS security testing and data logging" }
           }
         ],
@@ -706,7 +706,7 @@
         "en": "Designed and fabricated the race-car suspension; modeled and ran strength analysis in CATIA / ANSYS and validated motion with the DMU module."
       },
       "icon": "wrench",
-      "cover": "images/projects/baja/baja1.png",
+      "cover": "images/projects/baja/baja1.webp",
       "tech": ["CATIA", "ANSYS", "DMU"],
       "detail": {
         "subtitle": {
@@ -855,11 +855,11 @@
         ],
         "images": [
           {
-            "src": "images/projects/baja/baja1.png",
+            "src": "images/projects/baja/baja1.webp",
             "caption": { "zh": "图 1：巴哈越野赛车整车 CATIA 装配模型", "en": "Fig. 1: Complete Baja race-car CATIA assembly" }
           },
           {
-            "src": "images/projects/baja/baja2.png",
+            "src": "images/projects/baja/baja2.webp",
             "caption": { "zh": "图 2：整车侧视图与悬架/车架空间布置", "en": "Fig. 2: Vehicle side view and suspension/chassis packaging" }
           }
         ],

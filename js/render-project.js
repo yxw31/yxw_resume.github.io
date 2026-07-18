@@ -116,7 +116,7 @@
         : '';
       return (
         '<figure>' +
-          '<img src="' + esc(KL.BASE + img.src) + '" alt="' + esc(captionText || '') + '" />' +
+          '<img src="' + esc(KL.BASE + img.src) + '" alt="' + esc(captionText || '') + '" loading="lazy" decoding="async" />' +
           caption +
         '</figure>'
       );
